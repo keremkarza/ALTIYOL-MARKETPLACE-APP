@@ -1,0 +1,57 @@
+name: multivendor_app
+description: A new Flutter application.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dots_indicator: any
+  firebase_auth: any
+  cloud_firestore: any
+  firebase_core: any
+  provider: any
+  cupertino_icons: any
+  geolocator: any
+  geocoder: any
+  google_maps_flutter: any
+  flutter_spinkit: any
+  shared_preferences: any
+  carousel_slider: any
+  paginate_firestore: any
+  persistent_bottom_nav_bar: any
+  url_launcher: any
+  map_launcher: any
+  expandable_text: any
+  flutter_easyloading: any
+  toggle_bar: any
+  dotted_border: any
+  chips_choice: any
+  social_share: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - images/
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato-Bold.ttf
+          weight: 700
+        - asset: fonts/Lato-Regular.ttf
+
+    - family: Anton
+      fonts:
+        - asset: fonts/Anton-Regular.ttf

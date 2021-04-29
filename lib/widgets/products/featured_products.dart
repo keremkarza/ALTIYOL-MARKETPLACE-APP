@@ -47,7 +47,7 @@ class FeaturedProducts extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      'Featured Products',
+                      'Esnafın Seçtikleri',
                       style: TextStyle(
                         shadows: <Shadow>[
                           Shadow(

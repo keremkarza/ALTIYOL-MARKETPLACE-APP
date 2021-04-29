@@ -27,12 +27,12 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Visibility(
-                  visible: auth.error == 'Invalid OTP' ? true : false,
+                  visible: auth.error == 'Gecersiz OTP' ? true : false,
                   child: Container(
                     child: Column(
                       children: [
                         Text(
-                          "${auth.error} Try again",
+                          "${auth.error} Tekrar deneyin",
                           style: TextStyle(color: Colors.red, fontSize: 12),
                         ),
                         SizedBox(height: 3),
@@ -41,17 +41,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Text(
-                  "LOGIN",
+                  "GİRİŞ YAP",
                   style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Lato-Regular.ttf',
                   ),
                 ),
                 Text(
-                  "Enter Your phone number to proceed",
+                  "İlerlemek için numaranı gir",
                   style: TextStyle(
                     fontSize: 12,
                     color: Colors.grey,
+                    fontFamily: 'Lato-Regular.ttf',
                   ),
                 ),
                 SizedBox(
@@ -61,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                     prefixText: '+90',
-                    labelText: '10 digit mobile number',
+                    labelText: '10 haneli telefon numarası',
                   ),
                   autofocus: true,
                   maxLength: 10,
@@ -130,10 +132,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                 )
                               : Text(
                                   _validPhoneNumber
-                                      ? 'CONTINUE '
-                                      : 'ENTER PHONE NUMBER',
+                                      ? 'DEVAM ET '
+                                      : 'NUMARANI GİR',
                                   style: TextStyle(
                                     color: Colors.white,
+                                    fontFamily: 'Lato-Regular.ttf',
                                   ),
                                 ),
                         ),

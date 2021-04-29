@@ -74,7 +74,7 @@ class _ProductFilterWidgetState extends State<ProductFilterWidget> {
                       borderRadius: BorderRadius.circular(4)),
                   elevation: 4,
                   label: Text(
-                    'All ${_storeData.selectedProductCategory}',
+                    'Tüm ${_storeData.selectedProductCategory}',
                     style: TextStyle(
                         color: _isActive ? Colors.white : Colors.black54),
                   ),

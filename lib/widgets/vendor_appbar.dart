@@ -27,7 +27,7 @@ class VendorAppBar extends StatelessWidget {
       iconTheme: IconThemeData(
         color: Colors.white,
       ),
-      expandedHeight: 260,
+      expandedHeight: 230, //normal 260 tı
       flexibleSpace: SizedBox(
         child: Padding(
           padding: const EdgeInsets.only(top: 80),
@@ -68,23 +68,26 @@ class VendorAppBar extends StatelessWidget {
                           style: TextStyle(color: Colors.white),
                         ),
                         Text(
-                          'Distance : ${_store.distance} km',
+                          'Uzaklık : ${_store.distance} km',
                           style: TextStyle(color: Colors.white),
                         ),
                         SizedBox(height: 6),
-                        Row(
-                          children: [
-                            Icon(Icons.star, color: Colors.white),
-                            Icon(Icons.star, color: Colors.white),
-                            Icon(Icons.star, color: Colors.white),
-                            Icon(Icons.star_half, color: Colors.white),
-                            Icon(Icons.star_outline, color: Colors.white),
-                            SizedBox(width: 5),
-                            Text(
-                              ' (3.5)',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
+                        Visibility(
+                          visible: false,
+                          child: Row(
+                            children: [
+                              Icon(Icons.star, color: Colors.white),
+                              Icon(Icons.star, color: Colors.white),
+                              Icon(Icons.star, color: Colors.white),
+                              Icon(Icons.star_half, color: Colors.white),
+                              Icon(Icons.star_outline, color: Colors.white),
+                              SizedBox(width: 5),
+                              Text(
+                                ' (3.5)',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,

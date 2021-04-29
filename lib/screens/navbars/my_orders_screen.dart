@@ -18,6 +18,14 @@ class MyOrdersScreen extends StatefulWidget {
 class _MyOrdersScreenState extends State<MyOrdersScreen> {
   int tag = 0;
   List<String> options = [
+    'Tümü',
+    'Sipariş Verildi',
+    'Kabul Edildi',
+    'Hazırlanıyor',
+    'Yolda',
+    'Teslim Edildi',
+  ];
+  List<String> optionsForChange = [
     'All Orders',
     'Ordered',
     'Accepted',
@@ -35,8 +43,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text(
-          'My Orders',
-          style: TextStyle(color: Colors.white),
+          'Siparişlerim',
+          style: TextStyle(color: Colors.white, fontFamily: 'Lato-Regular.ttf'),
         ),
         centerTitle: true,
         actions: [
@@ -68,7 +76,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                   tag = val;
 
                   if (tag > 0) {
-                    _orderProvider.filterOrder(options[val]);
+                    _orderProvider.filterOrder(optionsForChange[val]);
                   }
                 });
               },
@@ -89,7 +97,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
               builder: (BuildContext context,
                   AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.hasError) {
-                  return Text('Something went wrong');
+                  return Text('Birseyler yanlis gitti.');
                 }
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
@@ -99,9 +107,12 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                 if (snapshot.data.size == 0) {
                   //TODO: No orders screen will be seen here
                   return Center(
-                      child: Text(tag > 0
-                          ? 'No ${options[tag]} orders'
-                          : 'No orders. Continue shopping.'));
+                      child: Text(
+                    tag > 0
+                        ? '${options[tag]} kısmında siparis yok.'
+                        : 'Siparis Yok. Alışverişe devam edin.',
+                    style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                  ));
                 }
 
                 return Expanded(
@@ -114,7 +125,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           children: [
                             ListTile(
                               title: Text(
-                                document.data()['seller']['orderStatus'],
+                                _orderServices.statusString(document),
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: _orderServices.statusColor(document),
@@ -122,7 +133,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 ),
                               ),
                               subtitle: Text(
-                                'On ${DateFormat.yMMMd().format(DateTime.parse(document.data()['seller']['timeStamp']))}',
+                                'Tarih :  ${DateFormat.yMMMd().format(DateTime.parse(document.data()['seller']['timeStamp']))}',
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.grey,
@@ -138,17 +149,19 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Text(
-                                    'Payment Type : ${document.data()['cod'] == 0 ? 'Online' : document.data()['cod'] == 2 ? 'Cart at Door' : 'Cash at Door'}',
+                                    'Ödeme Tipi : ${document.data()['cod'] == 0 ? 'Online' : document.data()['cod'] == 2 ? 'Kapıda Kartla' : 'Kapıda Nakit'}',
                                     style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
+                                      fontFamily: 'Lato-Regular.ttf',
                                     ),
                                   ),
                                   Text(
-                                    'Amount : ${document.data()['total']}\$',
+                                    'Miktar : ${document.data()['total']} TL',
                                     style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
+                                      fontFamily: 'Lato-Regular.ttf',
                                     ),
                                   ),
                                 ],
@@ -201,17 +214,19 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                     : Container(),
                             ExpansionTile(
                               title: Text(
-                                'Order Details',
+                                'Sipariş Detayları',
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.black,
+                                  fontFamily: 'Lato-Regular.ttf',
                                 ),
                               ),
                               subtitle: Text(
-                                'View order details',
+                                'Sipariş Detaylarını Görüntüle',
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.black54,
+                                  fontFamily: 'Lato-Regular.ttf',
                                 ),
                               ),
                               children: [
@@ -235,7 +250,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                         style: TextStyle(fontSize: 12),
                                       ),
                                       subtitle: Text(
-                                        '${document.data()['products'][index]['qty']} x ${document.data()['products'][index]['price'].toStringAsFixed(2)}\$ = ${document.data()['products'][index]['total'].toStringAsFixed(2)}\$',
+                                        '${document.data()['products'][index]['qty']} x ${document.data()['products'][index]['price'].toStringAsFixed(2)} TL = ${document.data()['products'][index]['total'].toStringAsFixed(2)} TL',
                                         style: TextStyle(
                                           fontSize: 12,
                                           color: Colors.grey,
@@ -258,11 +273,13 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                           Row(
                                             children: [
                                               Text(
-                                                'Seller : ',
+                                                'Satıcı : ',
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 15,
+                                                  fontFamily:
+                                                      'Lato-Regular.ttf',
                                                 ),
                                               ),
                                               Text(
@@ -270,6 +287,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                                     ['shopName'],
                                                 style: TextStyle(
                                                   color: Colors.grey,
+                                                  fontFamily:
+                                                      'Lato-Regular.ttf',
                                                 ),
                                               ),
                                             ],
@@ -280,18 +299,22 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                               Row(
                                                 children: [
                                                   Text(
-                                                    'Discount : ',
+                                                    'İndirim : ',
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontSize: 15,
+                                                      fontFamily:
+                                                          'Lato-Regular.ttf',
                                                     ),
                                                   ),
                                                   Text(
                                                     document.data()['discount'],
                                                     style: TextStyle(
                                                       color: Colors.grey,
+                                                      fontFamily:
+                                                          'Lato-Regular.ttf',
                                                     ),
                                                   ),
                                                 ],
@@ -300,12 +323,14 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                               Row(
                                                 children: [
                                                   Text(
-                                                    'Discount Code : ',
+                                                    'İndirim Kodu : ',
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontSize: 13,
+                                                      fontFamily:
+                                                          'Lato-Regular.ttf',
                                                     ),
                                                   ),
                                                   Text(
@@ -327,11 +352,13 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                           Row(
                                             children: [
                                               Text(
-                                                'Delivery Fee : ',
+                                                'Teslimat Ücreti : ',
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 15,
+                                                  fontFamily:
+                                                      'Lato-Regular.ttf',
                                                 ),
                                               ),
                                               Text(

@@ -12,7 +12,7 @@ class CodToggleSwitch extends StatelessWidget {
       color: Colors.transparent,
       child: ToggleBar(
           backgroundColor: Theme.of(context).primaryColor,
-          labels: ["Online", "Cash at Door", "Cart at Door"],
+          labels: ["Online", "Kapıda Kartla", "Kapıda Nakit"],
           //labelTextStyle: TextStyle(),
           selectedTabColor: Colors.white,
           selectedTextColor: Colors.black,

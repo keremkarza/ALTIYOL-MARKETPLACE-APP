@@ -120,7 +120,7 @@ class _NearByStoresState extends State<NearByStores> {
     //var query = tag > 0 ? superCategoryStatus : null;
     final _cartProvider = Provider.of<CartProvider>(context);
     final _storeProvider = Provider.of<StoreProvider>(context);
-    print('nearby build yenilendi. streambuilder');
+    //print('nearby build yenilendi. streambuilder');
     //if its streambuilder, it will keep on make any new update. or else untill u restart the app, u wont able to see the update. so its up tp u, u can use any way
     //superCategoryStatus = _storeProvider.status;
     //print('superCat : $superCategoryStatus'); // for tracking
@@ -403,17 +403,20 @@ class _NearByStoresState extends State<NearByStores> {
                                         style: kStoreCardStyle,
                                       ),
                                       SizedBox(height: 3),
-                                      Row(
-                                        //burası rating  ve sonradan yapılacak
-                                        children: [
-                                          Icon(
-                                            Icons.star,
-                                            size: 12,
-                                            color: Colors.amber[300],
-                                          ),
-                                          SizedBox(width: 4),
-                                          Text('3.2', style: kStoreCardStyle),
-                                        ],
+                                      Visibility(
+                                        visible: false,
+                                        child: Row(
+                                          //burası rating  ve sonradan yapılacak
+                                          children: [
+                                            Icon(
+                                              Icons.star,
+                                              size: 12,
+                                              color: Colors.amber[300],
+                                            ),
+                                            SizedBox(width: 4),
+                                            Text('3.2', style: kStoreCardStyle),
+                                          ],
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -457,11 +460,11 @@ class _NearByStoresState extends State<NearByStores> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          'Made by :',
-                                          style:
-                                              TextStyle(color: Colors.black54),
-                                        ),
+                                        // Text(
+                                        //   'Made by :',
+                                        //   style:
+                                        //       TextStyle(color: Colors.black54),
+                                        // ),
                                         Text(
                                           'ALTIYOL',
                                           style: TextStyle(

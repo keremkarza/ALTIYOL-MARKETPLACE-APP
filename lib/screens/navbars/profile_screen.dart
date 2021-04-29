@@ -43,7 +43,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Container(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('MY ACCOUNT',
+                child: Text('HESABIM',
                     style: TextStyle(fontWeight: FontWeight.bold)),
               ),
             ),
@@ -84,12 +84,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 children: [
                                   Text(
                                     userDetails.snapshot == null
-                                        ? 'Update Your Name'
+                                        ? 'ismini guncelle'
                                         : userDetails.snapshot
                                                     .data()['firstName'] !=
                                                 null
                                             ? '${userDetails.snapshot.data()['firstName']} ${userDetails.snapshot.data()['lastName']}'
-                                            : 'Update Your Name',
+                                            : 'ismini guncelle',
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
@@ -97,13 +97,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Text(
                                     userDetails.snapshot == null
-                                        ? 'Update your Email'
+                                        ? 'mailini guncelle'
                                         : userDetails.snapshot
                                                     .data()['email'] !=
                                                 null
                                             ? userDetails.snapshot
                                                 .data()['email']
-                                            : 'Update your Email',
+                                            : 'mailini guncelle',
                                     style: TextStyle(
                                         fontSize: 14, color: Colors.white),
                                   ),
@@ -136,7 +136,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             trailing: OutlinedButton(
                               onPressed: () {
-                                EasyLoading.show(status: 'Please Wait...');
+                                EasyLoading.show(status: 'Lutfen Bekleyin...');
                                 locationData.getCurrentPosition().then((value) {
                                   if (value != null) {
                                     EasyLoading.dismiss();
@@ -157,8 +157,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 });
                               },
                               child: Text(
-                                'Change',
-                                style: TextStyle(color: Colors.redAccent),
+                                'Değiştir',
+                                style: TextStyle(
+                                    color: Colors.redAccent,
+                                    fontFamily: 'Lato-Regular.ttf'),
                               ),
                             ),
                           ),
@@ -203,7 +205,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     );
                   },
                   leading: Icon(Icons.history),
-                  title: Text('My Orders'),
+                  title: Text(
+                    'SİPARİŞLERİM',
+                    style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                  ),
                   horizontalTitleGap: 2,
                 ),
                 Divider(),
@@ -212,7 +217,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     showMyDialog();
                   },
                   leading: Icon(Icons.comment_outlined),
-                  title: Text('My Ratings & Reviews'),
+                  title: Text(
+                    'DEĞERLENDİRMELERİM',
+                    style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                  ),
                   //shape: Border(bottom: BorderSide(color: Colors.grey)),
                   horizontalTitleGap: 2,
                 ),
@@ -222,27 +230,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     showMyDialog();
                   },
                   leading: Icon(Icons.notifications_none),
-                  title: Text('My Notifications'),
+                  title: Text(
+                    'BİLDİRİMLERİM',
+                    style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                  ),
                   horizontalTitleGap: 2,
                 ),
                 Divider(),
                 ListTile(
                   leading: Icon(Icons.power_settings_new),
-                  title: Text('Log Out'),
+                  title: Text(
+                    'ÇIKIŞ YAP',
+                    style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                  ),
                   horizontalTitleGap: 2,
                   onTap: () {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return CupertinoAlertDialog(
-                            title: Text('Log Out'),
-                            content: Text('Are you sure to log out ? '),
+                            title: Text(
+                              'ÇIKIŞ YAP',
+                              style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                            ),
+                            content: Text('Çıkmak istediğine emin misin ? '),
                             actions: <Widget>[
                               CupertinoDialogAction(
-                                child: Text('Yes'),
+                                child: Text('Evet'),
                                 onPressed: () {
                                   EasyLoading.show(
-                                      status: 'You are logging out...');
+                                      status: 'Şuan cıkısınız yapılıyor...');
                                   FirebaseAuth.instance.signOut();
                                   EasyLoading.dismiss();
                                   pushNewScreenWithRouteSettings(
@@ -258,7 +275,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 },
                               ),
                               CupertinoDialogAction(
-                                child: Text('No'),
+                                child: Text('Hayır'),
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
@@ -282,12 +299,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
         context: context,
         builder: (BuildContext context) {
           return CupertinoAlertDialog(
-            title: Text('Not Yet Launched'),
+            title: Text('Henüz Yayınlanmadı'),
             content: Text(
-                'This feature will be here soon. Please kindly wait for development.'),
+                'Bu özellik şuanda yayına alınmadı ve geliştirilmeye devam ediyor.'),
             actions: [
               CupertinoDialogAction(
-                child: Text('OK'),
+                child: Text('TAMAM'),
                 onPressed: () {
                   Navigator.pop(context);
                 },

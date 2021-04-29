@@ -28,7 +28,7 @@ class CartProvider with ChangeNotifier {
   // }
 
   Future<double> getCartTotal() async {
-    print('getTotalInCartProvider');
+    //print('getTotalInCartProvider');
     var saving = 0.0;
     var cartTotal = 0.0;
     List _newList = [];
@@ -65,7 +65,7 @@ class CartProvider with ChangeNotifier {
   }
 
   getDistance(distance) {
-    print('getDistanceInCartProvider');
+    //print('getDistanceInCartProvider');
     this.distance = distance;
     notifyListeners();
   }
@@ -91,7 +91,7 @@ class CartProvider with ChangeNotifier {
 
   //Future<DocumentSnapshot>
   Future<DocumentSnapshot> getShopName() async {
-    print('getShopInCartProvider');
+    //print('getShopInCartProvider');
     DocumentSnapshot doc = await _cart.cart.doc(_cart.user.uid).get();
     if (doc.exists) {
       this.document = doc;

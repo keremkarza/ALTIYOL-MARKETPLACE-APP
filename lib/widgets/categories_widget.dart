@@ -91,7 +91,7 @@ class _VendorCategoriesState extends State<VendorCategories> {
                     ),
                     child: Center(
                       child: Text(
-                        'Shop By Category',
+                        'KATEGORİLER',
                         style: TextStyle(
                           shadows: <Shadow>[
                             Shadow(
@@ -103,6 +103,7 @@ class _VendorCategoriesState extends State<VendorCategories> {
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 25,
+                          fontFamily: 'Lato-Regular.ttf',
                         ),
                       ),
                     ),

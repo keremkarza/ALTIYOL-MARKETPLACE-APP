@@ -79,14 +79,14 @@ class CartCard extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            '${document.data()['price'].toStringAsFixed(2)}\$',
+                            '${document.data()['price'].toStringAsFixed(2)} TL',
                             maxLines: 1,
                             style: TextStyle(
                                 color: Theme.of(context).backgroundColor),
                           ),
                           SizedBox(width: 5),
                           Text(
-                            '${(document.data()['comparedPrice']).toStringAsFixed(2)}\$',
+                            '${(document.data()['comparedPrice']).toStringAsFixed(2)} TL',
                             maxLines: 1,
                             style: TextStyle(
                               color: Colors.grey,

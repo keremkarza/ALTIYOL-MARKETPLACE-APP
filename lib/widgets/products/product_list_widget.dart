@@ -45,19 +45,19 @@ class ProductListWidget extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  '${snapshot.data.docs.length} Items',
+                  '${snapshot.data.docs.length} Ürün',
                   style: TextStyle(
-                    shadows: <Shadow>[
-                      Shadow(
-                        offset: Offset(2.0, 2.0),
-                        blurRadius: 3.0,
-                        color: Colors.black,
-                      ),
-                    ],
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
-                  ),
+                      shadows: <Shadow>[
+                        Shadow(
+                          offset: Offset(2.0, 2.0),
+                          blurRadius: 3.0,
+                          color: Colors.black,
+                        ),
+                      ],
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      fontFamily: 'Lato-Regular.ttf'),
                 ),
               ),
             ),

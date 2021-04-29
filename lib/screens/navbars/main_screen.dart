@@ -22,13 +22,13 @@ class _MainScreenState extends State<MainScreen> {
   PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
 
-  @override
-  void didChangeDependencies() {
-    setState(() {
-      print('didchangeinmain');
-    });
-    super.didChangeDependencies();
-  }
+  // @override
+  // void didChangeDependencies() {
+  //   setState(() {
+  //     print('didchangeinmain');
+  //   });
+  //   super.didChangeDependencies();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
       return [
         PersistentBottomNavBarItem(
           icon: Icon(CupertinoIcons.home),
-          title: ("Home"),
+          title: ("Anasayfa"),
           textStyle: TextStyle(fontWeight: FontWeight.bold),
           activeColorPrimary: Theme.of(context).primaryColor,
           activeColorSecondary: Colors.white,
@@ -54,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         PersistentBottomNavBarItem(
           icon: Icon(CupertinoIcons.square_favorites_alt),
-          title: ("My Favourites"),
+          title: ("Takip Ettiklerim"),
           textStyle: TextStyle(fontWeight: FontWeight.bold),
           activeColorPrimary: Theme.of(context).primaryColor,
           activeColorSecondary: Colors.white,
@@ -62,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         PersistentBottomNavBarItem(
           icon: Icon(CupertinoIcons.bag),
-          title: ("My Orders"),
+          title: ("Siparislerim"),
           textStyle: TextStyle(fontWeight: FontWeight.bold),
           activeColorPrimary: Theme.of(context).primaryColor,
           activeColorSecondary: Colors.white,
@@ -70,7 +70,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         PersistentBottomNavBarItem(
           icon: Icon(CupertinoIcons.profile_circled),
-          title: ("My Profile"),
+          title: ("Hesabım"),
           textStyle: TextStyle(fontWeight: FontWeight.bold),
           activeColorPrimary: Theme.of(context).primaryColor,
           activeColorSecondary: Colors.white,

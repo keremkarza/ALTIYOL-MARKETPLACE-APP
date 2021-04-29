@@ -55,7 +55,7 @@ class _CouponWidgetState extends State<CouponWidget> {
                         enabledBorder: OutlineInputBorder(),
                         focusedBorder: OutlineInputBorder(),
                         //contentPadding: EdgeInsets.zero,
-                        hintText: 'Enter Voucher Code',
+                        hintText: 'Kupon Kodunu Gir',
                         contentPadding: EdgeInsets.all(8),
                         hintStyle:
                             TextStyle(color: Theme.of(context).backgroundColor),
@@ -74,7 +74,7 @@ class _CouponWidgetState extends State<CouponWidget> {
                         backgroundColor: MaterialStateProperty.resolveWith(
                             (states) => color)),
                     onPressed: () {
-                      EasyLoading.show(status: 'Validating Coupon..');
+                      EasyLoading.show(status: 'Kupon Kontrol Ediliyor..');
                       _couponProvider
                           .getCouponDetails(
                               _couponController.text, widget.couponVendor)
@@ -89,8 +89,8 @@ class _CouponWidgetState extends State<CouponWidget> {
                               _visible = false;
                             });
                             EasyLoading.dismiss();
-                            showDialog(
-                                _couponController.text, context, 'Not valid');
+                            showDialog(_couponController.text, context,
+                                'Gecerli Degil');
                             return;
                           }
                         }
@@ -112,7 +112,7 @@ class _CouponWidgetState extends State<CouponWidget> {
                           });
                           EasyLoading.dismiss();
                           showDialog(
-                              _couponController.text, context, 'Expired');
+                              _couponController.text, context, 'Tarihi Gecmis');
                           return;
                         }
                         EasyLoading.dismiss();
@@ -120,7 +120,7 @@ class _CouponWidgetState extends State<CouponWidget> {
                       });
                     },
                     child: Text(
-                      'Apply',
+                      'Kullan',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),

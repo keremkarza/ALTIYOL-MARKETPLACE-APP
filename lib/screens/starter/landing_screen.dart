@@ -34,14 +34,16 @@ class _LandingScreenState extends State<LandingScreen> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Delivery Address Not Set',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                'Teslimat bölgesi seçilmedi',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Lato-Regular.ttf'),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Please update your Delivery location to find nearest stores for you.',
+                'Sana en yakın esnafları bulmak için adresini belirt.',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey),
               ),
@@ -65,7 +67,7 @@ class _LandingScreenState extends State<LandingScreen> {
                             });
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                 content: Text(
-                                    'Please allow permission to find nearest stores for you.')));
+                                    'Sana yakın esnafları bulmak için izin ver.')));
                           }
                         });
                       }
@@ -74,7 +76,7 @@ class _LandingScreenState extends State<LandingScreen> {
                       backgroundColor: Theme.of(context).primaryColor,
                     ),
                     child: Text(
-                      'Set your Location',
+                      'Adresini Belirle',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),

@@ -12,7 +12,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('productcard build');
+    //print('productcard build');
     double discount = 100 -
         ((document.data()['price'] / document.data()['comparedPrice']) * 100);
     int intDiscount = discount.toInt();
@@ -106,12 +106,12 @@ class ProductCard extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            '${document.data()['price'].toStringAsFixed(0)}\$',
+                            '${document.data()['price'].toStringAsFixed(0)} TL',
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           SizedBox(width: 10),
                           Text(
-                            '${document.data()['comparedPrice'].toStringAsFixed(0)}\$',
+                            '${document.data()['comparedPrice'].toStringAsFixed(0)} TL',
                             style: TextStyle(
                               decoration: TextDecoration.lineThrough,
                               fontWeight: FontWeight.bold,

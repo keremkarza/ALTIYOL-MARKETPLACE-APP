@@ -80,7 +80,7 @@ class StoreProvider with ChangeNotifier {
         this.userLatitude = result.data()['latitude'];
         this.userLongitude = result.data()['longitude'];
         notifyListeners();
-        print('getUserData');
+        //print('getUserData');
       } else {
         Navigator.pushReplacementNamed(context, WelcomeScreen.id);
       }

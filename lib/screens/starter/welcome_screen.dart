@@ -42,12 +42,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Visibility(
-                      visible: auth.error == 'Invalid OTP' ? true : false,
+                      visible: auth.error == 'Gecersiz OTP' ? true : false,
                       child: Container(
                         child: Column(
                           children: [
                             Text(
-                              "${auth.error} Try again",
+                              "${auth.error} Tekrar deneyin",
                               style: TextStyle(color: Colors.red, fontSize: 12),
                             ),
                             SizedBox(height: 3),
@@ -56,17 +56,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),
                     ),
                     Text(
-                      "LOGIN",
+                      "GİRİŞ YAP",
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'Lato-Regular.ttf',
                       ),
                     ),
                     Text(
-                      "Enter Your phone number to proceed",
+                      "İlerlemek için numaranı gir",
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
+                        fontFamily: 'Lato-Regular.ttf',
                       ),
                     ),
                     SizedBox(
@@ -76,7 +78,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         prefixText: '+90',
-                        labelText: '10 digit mobile number',
+                        labelText: '10 haneli telefon numarası',
                       ),
                       autofocus: true,
                       maxLength: 10,
@@ -136,10 +138,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     )
                                   : Text(
                                       _validPhoneNumber
-                                          ? 'CONTINUE '
-                                          : 'ENTER PHONE NUMBER',
+                                          ? 'DEVAM ET '
+                                          : 'NUMARANI GİR',
                                       style: TextStyle(
                                         color: Colors.white,
+                                        fontFamily: 'Lato-Regular.ttf',
                                       ),
                                     ),
                             ),
@@ -168,23 +171,29 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         padding: const EdgeInsets.all(20.0),
         child: Stack(
           children: [
-            Positioned(
-              right: 0.0,
-              top: 10.0,
-              child: TextButton(
-                child: Text(
-                  'SKIP',
-                  style: TextStyle(color: Theme.of(context).primaryColor),
+            Visibility(
+              visible: false,
+              child: Positioned(
+                right: 0.0,
+                top: 10.0,
+                child: TextButton(
+                  child: Text(
+                    'SKIP',
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  ),
+                  onPressed: () {},
                 ),
-                onPressed: () {},
               ),
             ),
             Column(
               children: [
                 Expanded(child: OnBoardScreen()),
                 Text(
-                  'Ready to order from your nearest shop?',
-                  style: TextStyle(color: Colors.grey),
+                  'Sana en yakın dükkanlardan sipariş vermeye hazır mısın?',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontFamily: 'Lato-Regular.ttf',
+                  ),
                 ),
                 SizedBox(height: 20),
                 TextButton(
@@ -197,9 +206,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               AlwaysStoppedAnimation<Color>(Colors.white),
                         )
                       : Text(
-                          'SET DELIVERY LOCATION',
+                          'TESLİMAT BÖLGENİ SEÇ',
                           style: TextStyle(
                             color: Colors.white,
+                            fontFamily: 'Lato-Regular.ttf',
                           ),
                         ),
                   onPressed: () async {
@@ -224,14 +234,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 TextButton(
                   child: RichText(
                     text: TextSpan(
-                        text: 'Already a Customer ? ',
-                        style: TextStyle(color: Colors.grey),
+                        text: 'Zaten müşterimiz misin ? ',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: 'Lato-Regular.ttf',
+                        ),
                         children: [
                           TextSpan(
-                            text: ' Login',
+                            text: ' Giriş Yap',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Theme.of(context).primaryColor,
+                              fontFamily: 'Lato-Regular.ttf',
                             ),
                           )
                         ]),

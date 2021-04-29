@@ -40,7 +40,10 @@ class _CartScreenState extends State<CartScreen> {
   DocumentSnapshot doc;
   double discount = 0;
   int deliveryFee = 4;
-  var textStyle = TextStyle(color: Colors.grey);
+  var textStyle = TextStyle(
+    color: Colors.grey,
+    fontFamily: 'Lato-Regular.ttf',
+  );
   String _address;
   //bool _loading = false;
   bool _checkingUser = false;
@@ -128,7 +131,7 @@ class _CartScreenState extends State<CartScreen> {
                             children: [
                               Expanded(
                                 child: Text(
-                                  'Deliver to this address',
+                                  'Bu adrese teslim edilecek',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
@@ -137,12 +140,12 @@ class _CartScreenState extends State<CartScreen> {
                               ),
                               InkWell(
                                 onTap: () {
-                                  EasyLoading.show(status: 'Please Wait..');
+                                  EasyLoading.show(status: 'Lütfen Bekleyin..');
                                   locationData
                                       .getCurrentPosition()
                                       .then((value) {
                                     EasyLoading.showSuccess(
-                                        'You can change your address now.');
+                                        'Teslimat bolgeni degistir.');
                                     if (value != null) {
                                       pushNewScreenWithRouteSettings(
                                         context,
@@ -165,13 +168,14 @@ class _CartScreenState extends State<CartScreen> {
                                   color: Colors.red,
                                   child: Padding(
                                     padding: const EdgeInsets.only(
-                                        top: 2, bottom: 2, left: 8, right: 8),
+                                        top: 5, bottom: 5, left: 10, right: 10),
                                     child: Text(
-                                      'Change',
+                                      'Değiştir',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 14,
-                                          fontWeight: FontWeight.bold),
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Lato-Regular.ttf'),
                                     ),
                                   ),
                                 ),
@@ -212,9 +216,11 @@ class _CartScreenState extends State<CartScreen> {
                                 style: TextStyle(color: Colors.white),
                               ),
                               Text(
-                                '(Include everything)',
-                                style:
-                                    TextStyle(color: Colors.white, fontSize: 8),
+                                '(Herşey Dahil)',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 8,
+                                    fontFamily: 'Lato-Regular.ttf'),
                               ),
                             ],
                           ),
@@ -259,7 +265,7 @@ class _CartScreenState extends State<CartScreen> {
                                 });
                               } else {
                                 _showMyDialog(
-                                    title: 'CHECKOUT',
+                                    title: 'SİPARİŞ VER',
                                     content:
                                         'You must buy products worth equal or more than 15 TL, Please buy more product to proceed.');
                               }
@@ -267,10 +273,11 @@ class _CartScreenState extends State<CartScreen> {
                             child: _checkingUser
                                 ? CircularProgressIndicator()
                                 : Text(
-                                    'CHECKOUT',
+                                    'SİPARİŞ VER',
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.bold),
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Lato-Regular.ttf'),
                                   ),
                             style: ButtonStyle(
                                 backgroundColor:
@@ -304,12 +311,12 @@ class _CartScreenState extends State<CartScreen> {
                     //mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        '${_cartProvider.cartQty} ${_cartProvider.cartQty == 1 ? 'Item' : 'Items'}',
-                        style: TextStyle(fontSize: 12),
+                        '${_cartProvider.cartQty} Ürün için ', // ${_cartProvider.cartQty == 1 ? 'Item' : 'Items'}',
+                        style: TextStyle(fontSize: 16),
                       ),
                       Text(
-                        '  To pay : ${_cartProvider.subTotal.toStringAsFixed(2)}\$',
-                        style: TextStyle(fontSize: 12),
+                        '  Tutar : ${_cartProvider.subTotal.toStringAsFixed(2)} TL',
+                        style: TextStyle(fontSize: 16),
                       ),
                     ],
                   ),
@@ -389,7 +396,7 @@ class _CartScreenState extends State<CartScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Bill Details',
+                                        'Fatura Detayları',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -397,10 +404,10 @@ class _CartScreenState extends State<CartScreen> {
                                       Row(
                                         children: [
                                           Expanded(
-                                              child: Text('Basket Value',
+                                              child: Text('Sepet Tutarı',
                                                   style: textStyle)),
                                           Text(
-                                              '${_cartProvider.subTotal.toStringAsFixed(2)}\$',
+                                              '${_cartProvider.subTotal.toStringAsFixed(2)} TL',
                                               style: textStyle),
                                         ],
                                       ),
@@ -408,12 +415,12 @@ class _CartScreenState extends State<CartScreen> {
                                       Row(
                                         children: [
                                           Expanded(
-                                              child: Text('Discount',
+                                              child: Text('İndirim',
                                                   style: textStyle)),
                                           Text(
                                               discount > 0
-                                                  ? '${discount.toStringAsFixed(2)} \$'
-                                                  : '0',
+                                                  ? '${discount.toStringAsFixed(2)} TL'
+                                                  : 'INDIRIM YOK',
                                               style: textStyle),
                                         ],
                                       ),
@@ -421,10 +428,10 @@ class _CartScreenState extends State<CartScreen> {
                                       Row(
                                         children: [
                                           Expanded(
-                                              child: Text('Delivery Fee',
+                                              child: Text('Teslimat Ücreti',
                                                   style: textStyle)),
                                           Text(
-                                              '${deliveryFee.toStringAsFixed(2)} \$',
+                                              '${deliveryFee.toStringAsFixed(2)} TL',
                                               style: textStyle),
                                         ],
                                       ),
@@ -434,14 +441,14 @@ class _CartScreenState extends State<CartScreen> {
                                         children: [
                                           Expanded(
                                               child: Text(
-                                                  'Total amount payable',
+                                                  'Ödenecek toplam tutar : ',
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold))),
                                           //Aşagı kısımda 30$ discount her türlü düşüyor, böylece - olabiliyor
                                           // bu kısım çözülmeli
                                           Text(
-                                              '${(deliveryFee + _cartProvider.subTotal - discount).toStringAsFixed(2)} \$',
+                                              '${(deliveryFee + _cartProvider.subTotal - discount).toStringAsFixed(2)} TL',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold)),
                                         ],
@@ -461,14 +468,16 @@ class _CartScreenState extends State<CartScreen> {
                                             children: [
                                               Expanded(
                                                   child: Text(
-                                                'Total Saving',
+                                                'Son Kazanç',
                                                 style: TextStyle(
-                                                    color: Colors.green,
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                                  color: Colors.green,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontFamily:
+                                                      'Lato-Regular.ttf',
+                                                ),
                                               )),
                                               Text(
-                                                  '${_cartProvider.saving.toStringAsFixed(2)} \$',
+                                                  '${_cartProvider.saving.toStringAsFixed(2)} TL',
                                                   style: TextStyle(
                                                       color: Colors.green,
                                                       fontWeight:
@@ -489,8 +498,11 @@ class _CartScreenState extends State<CartScreen> {
                   )
                 : Center(
                     child: Text(
-                      'Cart Empty, Continue Shopping with us.',
-                      style: TextStyle(color: Colors.white),
+                      'Sepetin Boş, bizimle siparişe devam edin.',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Lato-Regular.ttf',
+                      ),
                     ),
                   ),
       ),
@@ -526,7 +538,7 @@ class _CartScreenState extends State<CartScreen> {
         //after submitting order, need to clear cart list.
         _cartServices.deleteCart().then((value) {
           _cartServices.checkData().then((value) {
-            EasyLoading.showSuccess('Your order is submitted.');
+            EasyLoading.showSuccess('Siparisin gönderildi.');
             Navigator.pop(context);
           });
         });
@@ -534,9 +546,9 @@ class _CartScreenState extends State<CartScreen> {
     } else {
       //index 0'sa yani onlinesa
       _showMyDialog(
-          title: 'Online Order',
+          title: 'Online Sipariş',
           content:
-              'You choose your order to be online. But we are not opened that feature yet.');
+              'Siparişinin online olmasını seçtin ama maalesef henüz bu özelliğimiz aktif değil.');
     }
   }
 
@@ -546,19 +558,25 @@ class _CartScreenState extends State<CartScreen> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text(title),
+          title: Text(
+            title,
+            style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+          ),
           titleTextStyle: TextStyle(color: Colors.red),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text(content),
+                Text(
+                  content,
+                  style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                ),
                 //Text('Would you like to approve of this message?'),
               ],
             ),
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('OK'),
+              child: Text('TAMAM'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

@@ -59,7 +59,7 @@ class _TopPickedStoresState extends State<TopPickedStores> {
 
     //for selected location near stores
     final _storeData = Provider.of<StoreProvider>(context);
-    print('toppick build');
+    //print('toppick build');
 
     String getDistance(location) {
       var distance = Geolocator.distanceBetween(_storeData.userLatitude,

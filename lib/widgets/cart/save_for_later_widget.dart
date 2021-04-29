@@ -20,20 +20,23 @@ class SaveForLaterWidget extends StatelessWidget {
               .checkFavouriteItem(document.data()['productId'])
               .then((value) {
             if (value) {
-              EasyLoading.show(status: 'Saving...');
+              EasyLoading.show(status: 'Kaydediliyor...');
               saveForLater().then((value) {
-                EasyLoading.showSuccess('Saved Successfully');
+                EasyLoading.showSuccess('Kaydedildi');
               });
             } else {
               showDialog(
                   context: context,
                   builder: (BuildContext context) {
                     return CupertinoAlertDialog(
-                      title: Text('Save Item'),
-                      content: Text('You already saved this item.'),
+                      title: Text('Ürünü Kaydet'),
+                      content: Text(
+                        'Zaten bu ürünü kaydetmişsiniz',
+                        style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                      ),
                       actions: [
                         CupertinoDialogAction(
-                          child: Text('OK'),
+                          child: Text('TAMAM'),
                           onPressed: () {
                             Navigator.pop(context);
                           },
@@ -56,7 +59,7 @@ class SaveForLaterWidget extends StatelessWidget {
                   Icon(CupertinoIcons.bookmark, color: Colors.white),
                   SizedBox(width: 10),
                   Text(
-                    'Save for later',
+                    'KAYDET',
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),

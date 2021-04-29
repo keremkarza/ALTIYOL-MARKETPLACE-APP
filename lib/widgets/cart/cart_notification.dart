@@ -53,7 +53,7 @@ class _CartNotificationState extends State<CartNotification> {
 
     //print('distance pro ${_cartProvider.distance}');
 
-    print('cartNotification build'); //because it is inside build
+    //print('cartNotification build'); //because it is inside build
     //wherenever it build, this message will hppen yes the problem is build method called infinitely, this print is just
     return Visibility(
       visible: _cartProvider.distance == null
@@ -85,12 +85,12 @@ class _CartNotificationState extends State<CartNotification> {
                     Row(
                       children: [
                         Text(
-                          '${_cartProvider.cartQty} ${_cartProvider.cartQty == 1 ? 'Item' : 'Items'}  ',
+                          '${_cartProvider.cartQty} Ürün ', // ${_cartProvider.cartQty == 1 ? 'Ürün' : 'Items'}  ',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          '|  ${_cartProvider.subTotal.toStringAsFixed(2)}\$',
+                          '|  ${_cartProvider.subTotal.toStringAsFixed(2)} TL',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),
@@ -100,7 +100,7 @@ class _CartNotificationState extends State<CartNotification> {
                       _cartProvider.document == null
                           ? ''
                           : _loaded
-                              ? 'From ${_cartProvider.document.data() == null ? '' : _cartProvider.document.data()['shopName']}'
+                              ? 'Satıcı :  ${_cartProvider.document.data() == null ? '' : _cartProvider.document.data()['shopName']}'
                               : '',
                       style: TextStyle(
                           color: Colors.white,
@@ -124,7 +124,7 @@ class _CartNotificationState extends State<CartNotification> {
                   child: Row(
                     children: [
                       Text(
-                        'View Cart',
+                        'Sepeti Görüntüle',
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
@@ -177,19 +177,27 @@ class _CartNotificationState extends State<CartNotification> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)), //this right here
             child: Container(
-              height: 200,
+              // height: 200,
+              height: 5 * MediaQuery.of(context).size.height / 12,
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Can you share this app with your neighbours and friends in order for our vendors to reach out more ?",
-                      style: TextStyle(
-                        color: Colors.black87,
-                        fontFamily: 'Lato-Regular.ttf',
-                        fontSize: 18,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Card(
+                        elevation: 0,
+                        borderOnForeground: true,
+                        child: Text(
+                          "Esnafımızın bu pandemi sürecinde daha fazla insana ulaşması için uygulamayı paylaşırmısın?",
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontFamily: 'Lato-Regular.ttf',
+                            fontSize: 18,
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(height: 10),

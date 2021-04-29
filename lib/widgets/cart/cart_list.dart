@@ -20,7 +20,7 @@ class _CartListState extends State<CartList> {
       stream: _cart.cart.doc(_cart.user.uid).collection('products').snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text('Something went wrong');
+          return Text('Birseyler ters gitti.');
         }
 
         if (!snapshot.hasData) {

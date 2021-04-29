@@ -13,8 +13,6 @@ class AddToCartWidget extends StatefulWidget {
 
   @override
   _AddToCartWidgetState createState() => _AddToCartWidgetState();
-
-
 }
 
 class _AddToCartWidgetState extends State<AddToCartWidget> {
@@ -87,14 +85,14 @@ class _AddToCartWidgetState extends State<AddToCartWidget> {
               : InkWell(
                   onTap: () {
                     print(_qty);
-                    EasyLoading.show(status: 'Adding to Cart');
+                    EasyLoading.show(status: 'Sepete Ekleniyor..');
                     _cart.checkSeller().then((shopName) {
                       if (shopName == null) {
                         setState(() {
                           _exist = true;
                         });
                         _cart.addToCart(widget.document).then((value) {
-                          EasyLoading.showSuccess('Added to Cart');
+                          EasyLoading.showSuccess('Sepete Eklendi');
                         });
                         return;
                       }
@@ -105,7 +103,7 @@ class _AddToCartWidgetState extends State<AddToCartWidget> {
                           _exist = true;
                         });
                         _cart.addToCart(widget.document).then((value) {
-                          EasyLoading.showSuccess('Added to Cart');
+                          EasyLoading.showSuccess('Sepete Eklendi');
                         });
                         return;
                       } else {
@@ -132,7 +130,7 @@ class _AddToCartWidgetState extends State<AddToCartWidget> {
                             Icon(Icons.shopping_basket_outlined,
                                 color: Colors.white),
                             SizedBox(width: 10),
-                            Text('Add to basket',
+                            Text('SEPETE EKLE',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold)),
@@ -150,18 +148,18 @@ class _AddToCartWidgetState extends State<AddToCartWidget> {
         context: context,
         builder: (BuildContext context) {
           return CupertinoAlertDialog(
-            title: Text('Replace Cart item?'),
+            title: Text('Sepetinizi sıfırlayalım mı?'),
             content: Text(
-                'Your cart contains items from $shopName. Do you want to discard the selection and add items from ${widget.document.data()['seller']['shopName']}'),
+                'Sepetinde $shopName dükkanından ürünler var. Bu sepeti silmemizi ve ${widget.document.data()['seller']['shopName']} dükkanından bu ürünü eklememizi istermisin?'),
             actions: [
               TextButton(
-                child: Text('No'),
+                child: Text('Hayır'),
                 onPressed: () {
                   Navigator.pop(context);
                 },
               ),
               TextButton(
-                child: Text('Yes'),
+                child: Text('Evet'),
                 onPressed: () {
                   //delete existing cart
                   _cart.deleteCart().then((value) {

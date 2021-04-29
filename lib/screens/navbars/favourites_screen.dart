@@ -11,14 +11,15 @@ class FavouritesScreen extends StatelessWidget {
     FavouritesServices _services = FavouritesServices();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Favorites Screen'),
+        title: Text('Beğendiğin Ürünleri Takip Et'),
+        centerTitle: true,
       ),
       body: Container(
         child: Column(
           children: [
             Center(
               child: Container(
-                child: Center(child: Text('Your Favourite Products')),
+                child: Center(child: Text('En Sevdiğin Ürünler')),
                 height: 50,
               ),
             ),
@@ -28,16 +29,19 @@ class FavouritesScreen extends StatelessWidget {
                 builder: (BuildContext context,
                     AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.hasError) {
-                    return Text('Something went wrong');
+                    return Text('Birseyler yanlis gitti.');
                   }
                   if (!snapshot.hasData) {
                     return Center(
-                      child: Text('There is no favourite product you choose.'),
+                      child: Text(
+                        'Şuana kadar hiç ürün seçmedin.',
+                        style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                      ),
                     );
                   }
 
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Text("Loading");
+                    return Text("Yukleniyor");
                   }
 
                   return Expanded(
@@ -47,7 +51,9 @@ class FavouritesScreen extends StatelessWidget {
                         if (document.data()['product'] == null) {
                           return Center(
                             child: Text(
-                                'There is no favourite product you choose.'),
+                              'Şuana kadar hiç ürün seçmedin.',
+                              style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                            ),
                           );
                         }
                         return Container(

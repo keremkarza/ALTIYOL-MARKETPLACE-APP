@@ -49,17 +49,20 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Update Profile',
-          style: TextStyle(color: Colors.white),
+          'Profili Güncelle',
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'Lato-Regular.ttf',
+          ),
         ),
         iconTheme: IconThemeData(color: Colors.white),
       ),
       bottomSheet: InkWell(
         onTap: () {
           if (_formKey.currentState.validate()) {
-            EasyLoading.show(status: 'Updating Profile...');
+            EasyLoading.show(status: 'Profil Guncelleniyor...');
             updateProfile().then((value) {
-              EasyLoading.showSuccess('Updated Successfully');
+              EasyLoading.showSuccess('Profil Guncellendi');
               Navigator.pop(context);
             });
           }
@@ -70,11 +73,13 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
           color: Theme.of(context).backgroundColor,
           child: Center(
             child: Text(
-              'Update',
+              'Güncelle',
               style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18),
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                fontFamily: 'Lato-Regular.ttf',
+              ),
             ),
           ),
         ),
@@ -91,13 +96,13 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       child: TextFormField(
                     controller: firstNameController,
                     decoration: InputDecoration(
-                      labelText: 'First Name',
+                      labelText: 'Ad',
                       labelStyle: TextStyle(color: Colors.grey),
                       contentPadding: EdgeInsets.zero,
                     ),
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'Enter First Name';
+                        return 'Adınızı Girin';
                       }
                       return null;
                     },
@@ -108,12 +113,12 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       controller: lastNameController,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.zero,
-                        labelText: 'Last Name',
+                        labelText: 'Soyad',
                         labelStyle: TextStyle(color: Colors.grey),
                       ),
                       validator: (value) {
                         if (value.isEmpty) {
-                          return 'Enter Last Name';
+                          return 'Soyadınızı Girin';
                         }
                         return null;
                       },
@@ -127,7 +132,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 enabled: false,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.zero,
-                  labelText: 'Mobile',
+                  labelText: 'Telefon',
                   labelStyle: TextStyle(color: Colors.grey),
                 ),
               ),
@@ -141,7 +146,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 ),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Enter Email address';
+                    return 'Email adresinizi girin';
                   }
                   return null;
                 },

@@ -21,7 +21,7 @@ class RecentlyAddedProducts extends StatelessWidget {
           .get(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text('Something went wrong');
+          return Text('Birseyler ters gitti.');
         }
 
         if (!snapshot.hasData) {
@@ -47,7 +47,7 @@ class RecentlyAddedProducts extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      'Recently Added',
+                      'Son Eklenenler',
                       style: TextStyle(
                         shadows: <Shadow>[
                           Shadow(

@@ -178,9 +178,9 @@ class _MapScreenState extends State<MapScreen> {
                                       child: Container(
                                         width:
                                             MediaQuery.of(context).size.width,
-                                        height:
+                                        height: 5 *
                                             MediaQuery.of(context).size.height /
-                                                3,
+                                            12,
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -196,7 +196,7 @@ class _MapScreenState extends State<MapScreen> {
                                                 maxLines: 6,
                                                 decoration: InputDecoration(
                                                   labelText:
-                                                      'Please enter your exact address',
+                                                      'Lütfen tam adresinizi girin',
                                                   labelStyle: TextStyle(
                                                       fontFamily:
                                                           'Lato-Regular.ttf'),
@@ -211,7 +211,7 @@ class _MapScreenState extends State<MapScreen> {
                                               color: Colors.green,
                                               child: TextButton(
                                                 child: Text(
-                                                  'CONFIRM LOCATION',
+                                                  'BOLGEYI ONAYLA',
                                                   style: TextStyle(
                                                       color: Colors.white),
                                                 ),
@@ -260,7 +260,7 @@ class _MapScreenState extends State<MapScreen> {
                                   });
                             },
                             child: Text(
-                              'CONFIRM LOCATION',
+                              'BOLGEYI ONAYLA',
                               style: TextStyle(color: Colors.white),
                             ),
                             style: TextButton.styleFrom(

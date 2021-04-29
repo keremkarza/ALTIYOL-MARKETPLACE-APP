@@ -47,7 +47,7 @@ class BestSellingProducts extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      'Best Selling',
+                      'Çok Satanlar',
                       style: TextStyle(
                         shadows: <Shadow>[
                           Shadow(

@@ -37,7 +37,7 @@ class _CounterForCardState extends State<CounterForCard> {
   }
 
   getCartData() {
-    print('getCartData');
+    //print('getCartData');
     FirebaseFirestore.instance
         .collection('cart')
         .doc(user.uid)
@@ -66,7 +66,7 @@ class _CounterForCardState extends State<CounterForCard> {
 
   @override
   Widget build(BuildContext context) {
-    print('counterforcard build');
+    //print('counterforcard build');
     // SchedulerBinding.instance.addPostFrameCallback((_) => setState(() {
     //       getCartData();
     //     }));
@@ -74,7 +74,7 @@ class _CounterForCardState extends State<CounterForCard> {
         ? StreamBuilder(
             stream: getCartData(),
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-              print('StreamBuilder1 build');
+              //print('StreamBuilder1 build');
               return InkWell(
                 onTap: () {
                   print('add00 : $_qty');
@@ -125,7 +125,7 @@ class _CounterForCardState extends State<CounterForCard> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: Text(
-                        'Add',
+                        'Ekle',
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -140,7 +140,7 @@ class _CounterForCardState extends State<CounterForCard> {
         : StreamBuilder(
             stream: getCartData(),
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-              print('StreamBuilder2 build');
+              //print('StreamBuilder2 build');
               return !_exist
                   ? buildAddToCartWidget()
                   : Container(
@@ -161,12 +161,12 @@ class _CounterForCardState extends State<CounterForCard> {
                                 _cartServices
                                     .removeFromCart(_docId)
                                     .then((value) {
-                                  EasyLoading.show(status: 'Removing...');
+                                  EasyLoading.show(status: 'Siliniyor...');
                                   setState(() {
                                     _updating = false;
                                     _exist = false;
                                   });
-                                  EasyLoading.showSuccess('Removed');
+                                  EasyLoading.showSuccess('Silindi');
 
                                   _cartServices.checkData();
                                 });
@@ -262,18 +262,18 @@ class _CounterForCardState extends State<CounterForCard> {
         context: context,
         builder: (BuildContext context) {
           return CupertinoAlertDialog(
-            title: Text('Replace Cart item?'),
+            title: Text('Sepetinizi sıfırlayalım mı?'),
             content: Text(
-                'Your cart contains items from $shopName. Do you want to discard the selection and add items from ${widget.document.data()['seller']['shopName']}'),
+                'Sepetinde $shopName dükkanından ürünler var. Bu sepeti silmemizi ve ${widget.document.data()['seller']['shopName']} dükkanından bu ürünü eklememizi istermisin?'),
             actions: [
               TextButton(
-                child: Text('No'),
+                child: Text('Hayır'),
                 onPressed: () {
                   Navigator.pop(context);
                 },
               ),
               TextButton(
-                child: Text('Yes'),
+                child: Text('Evet'),
                 onPressed: () {
                   //delete existing cart
                   _cartServices.deleteCart().then((value) {
@@ -282,7 +282,7 @@ class _CounterForCardState extends State<CounterForCard> {
                         _exist = true;
                       });
                       Navigator.pop(context);
-                      EasyLoading.showSuccess('Added to Cart');
+                      EasyLoading.showSuccess('Sepete Eklendi');
                     });
                   });
                 },

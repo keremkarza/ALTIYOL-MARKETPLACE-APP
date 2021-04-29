@@ -19,7 +19,7 @@ List<Widget> _pages = [
     children: [
       Expanded(child: Image.asset("images/enteraddress.png")),
       Text(
-        "Set Your Delivery Location",
+        "Teslimat bölgeni seç",
         style: kPageViewTextStyle,
         textAlign: TextAlign.center,
       ),
@@ -29,7 +29,7 @@ List<Widget> _pages = [
     children: [
       Expanded(child: Image.asset("images/orderfood.png")),
       Text(
-        "Order Online from Your Favourite Store",
+        "SEVDİĞİN DÜKKANLARDAN SİPARİŞ VER",
         style: kPageViewTextStyle,
         textAlign: TextAlign.center,
       ),
@@ -39,7 +39,7 @@ List<Widget> _pages = [
     children: [
       Expanded(child: Image.asset("images/deliverfood.png")),
       Text(
-        "Quick Deliver to your Doorstep",
+        "KAPINA HIZLI TESLİMAT",
         style: kPageViewTextStyle,
         textAlign: TextAlign.center,
       ),

@@ -67,12 +67,12 @@ class ProductDetailsScreen extends StatelessWidget {
             SizedBox(height: 10),
             Row(
               children: [
-                Text('${openedDocument['price'].toStringAsFixed(0)}\$',
+                Text('${openedDocument['price'].toStringAsFixed(0)} TL',
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 SizedBox(width: 10),
                 Text(
-                  '${openedDocument['comparedPrice'].toStringAsFixed(0)}\$',
+                  '${openedDocument['comparedPrice'].toStringAsFixed(0)} TL',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -121,8 +121,9 @@ class ProductDetailsScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 8, bottom: 8),
                 child: Text(
-                  'About this product',
-                  style: TextStyle(fontSize: 20),
+                  'Ürün Hakkında',
+                  style:
+                      TextStyle(fontSize: 20, fontFamily: 'Lato-Regular.ttf'),
                 ),
               ),
             ),
@@ -132,8 +133,8 @@ class ProductDetailsScreen extends StatelessWidget {
                   const EdgeInsets.only(top: 8, bottom: 8, left: 10, right: 10),
               child: ExpandableText(
                 openedDocument['description'],
-                expandText: 'View More',
-                collapseText: 'View Less',
+                expandText: 'Çoğalt',
+                collapseText: 'Azalt',
                 maxLines: 2,
                 linkColor: Colors.blue,
                 style: TextStyle(color: Colors.grey),
@@ -144,7 +145,7 @@ class ProductDetailsScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 8, bottom: 8),
                 child: Text(
-                  'Other Product Info',
+                  'Ürün hakkındaki diğer bilgiler',
                   style: TextStyle(fontSize: 20),
                 ),
               ),
@@ -160,7 +161,7 @@ class ProductDetailsScreen extends StatelessWidget {
                     style: TextStyle(color: Colors.grey),
                   ),
                   Text(
-                    'Seller : ${openedDocument['seller']['shopName']}',
+                    'Satıcı : ${openedDocument['seller']['shopName']}',
                     style: TextStyle(color: Colors.grey),
                   ),
                 ],

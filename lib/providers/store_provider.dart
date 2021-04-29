@@ -2,13 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:multivendor_app/services/store_services.dart';
 import 'package:multivendor_app/services/user_services.dart';
 
 import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/starter/welcome_screen.dart';
 
 class StoreProvider with ChangeNotifier {
-  StoreServices _storeServices = StoreServices();
+  //StoreServices _storeServices = StoreServices();
   UserServices _userServices = UserServices();
   User user = FirebaseAuth.instance.currentUser;
   var userLatitude = 0.0;
@@ -60,18 +59,20 @@ class StoreProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  String getDistance(location) {
-    var distance = Geolocator.distanceBetween(
-      //yes this error is about this, but my main problem is infinite loop
-      //show me that
-      userLatitude,
-      userLongitude,
-      41.0097531,
-      29.0962564,
-    );
-    var distanceInKm = distance / 1000;
-    return distanceInKm.toStringAsFixed(2);
-  }
+  // String getDistance(GeoPoint location) {
+  //   var distance = Geolocator.distanceBetween(
+  //     //yes this error is about this, but my main problem is infinite loop
+  //     //show me that
+  //     userLatitude,
+  //     userLongitude,
+  //     location.latitude,
+  //     location.longitude,
+  //     //41.0097531,
+  //     //29.0962564,
+  //   );
+  //   var distanceInKm = distance / 1000;
+  //   return distanceInKm.toStringAsFixed(2);
+  // }
 
   Future<void> getUserLocationData(context) async {
     _userServices.getUserById(user.uid).then((result) {

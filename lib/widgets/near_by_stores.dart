@@ -6,7 +6,6 @@ import 'package:multivendor_app/constants.dart';
 import 'package:multivendor_app/providers/cart_provider.dart';
 import 'package:multivendor_app/providers/store_provider.dart';
 import 'package:multivendor_app/screens/vendor_home_screen.dart';
-import 'package:multivendor_app/services/cart_services.dart';
 import 'package:multivendor_app/services/store_services.dart';
 import 'package:paginate_firestore/bloc/pagination_listeners.dart';
 import 'package:paginate_firestore/paginate_firestore.dart';
@@ -61,7 +60,7 @@ class _NearByStoresState extends State<NearByStores> {
   // }
   // version 1 --current location near stores------
 
-  CartServices _cartServices = CartServices();
+  //CartServices _cartServices = CartServices();
   StoreServices _storeServices = StoreServices();
   PaginateRefreshedChangeListener _paginateRefreshedChangeListener =
       PaginateRefreshedChangeListener();
@@ -121,8 +120,8 @@ class _NearByStoresState extends State<NearByStores> {
     //var query = tag > 0 ? superCategoryStatus : null;
     final _cartProvider = Provider.of<CartProvider>(context);
     final _storeProvider = Provider.of<StoreProvider>(context);
-    print(
-        'nearby build yenilendi. streambuilder'); //if its streambuilder, it will keep on make any new update. or else untill u restart the app, u wont able to see the update. so its up tp u, u can use any way
+    print('nearby build yenilendi. streambuilder');
+    //if its streambuilder, it will keep on make any new update. or else untill u restart the app, u wont able to see the update. so its up tp u, u can use any way
     //superCategoryStatus = _storeProvider.status;
     //print('superCat : $superCategoryStatus'); // for tracking
 
@@ -235,7 +234,7 @@ class _NearByStoresState extends State<NearByStores> {
             );
           }
 
-          _storeProvider.getDistance(shopDistance[0]);
+          //_storeProvider.getDistance(shopDistance[0]);
           SchedulerBinding.instance.addPostFrameCallback((_) => setState(() {
                 _storeProvider.getUserLocationData(context);
                 shopDistance.isEmpty

@@ -89,7 +89,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 child: intDiscount >= 10
                     ? Banner(
                         color: Colors.red,
-                        message: '% ${intDiscount}',
+                        message: '% $intDiscount',
                         textStyle: TextStyle(
                             fontSize: 14, fontWeight: FontWeight.w900),
                         location: BannerLocation.topStart,

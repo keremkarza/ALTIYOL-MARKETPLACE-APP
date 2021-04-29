@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:multivendor_app/providers/store_provider.dart';
 import 'package:multivendor_app/widgets/categories_widget.dart';
 import 'package:multivendor_app/widgets/products/best_selling_products.dart';
 import 'package:multivendor_app/widgets/products/featured_products.dart';
 import 'package:multivendor_app/widgets/products/recently_added_products.dart';
 import 'package:multivendor_app/widgets/vendor_appbar.dart';
 import 'package:multivendor_app/widgets/vendor_banner.dart';
-import 'package:provider/provider.dart';
 
 class VendorHomeScreen extends StatelessWidget {
   static const String id = 'vendor-home-screen';
@@ -15,7 +13,7 @@ class VendorHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('vendorhome build');
-    var _store = Provider.of<StoreProvider>(context);
+    //var _store = Provider.of<StoreProvider>(context);
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {

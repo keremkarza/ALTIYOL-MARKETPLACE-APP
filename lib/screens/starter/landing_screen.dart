@@ -48,7 +48,7 @@ class _LandingScreenState extends State<LandingScreen> {
             ),
             _loading
                 ? CircularProgressIndicator()
-                : FlatButton(
+                : TextButton(
                     onPressed: () async {
                       setState(() {
                         _loading = true;
@@ -63,18 +63,21 @@ class _LandingScreenState extends State<LandingScreen> {
                             setState(() {
                               _loading = false;
                             });
-                            Scaffold.of(context).showSnackBar(SnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                 content: Text(
                                     'Please allow permission to find nearest stores for you.')));
                           }
                         });
                       }
                     },
-                    color: Theme.of(context).primaryColor,
+                    style: TextButton.styleFrom(
+                      backgroundColor: Theme.of(context).primaryColor,
+                    ),
                     child: Text(
                       'Set your Location',
                       style: TextStyle(color: Colors.white),
-                    )),
+                    ),
+                  ),
           ],
         ),
       ),

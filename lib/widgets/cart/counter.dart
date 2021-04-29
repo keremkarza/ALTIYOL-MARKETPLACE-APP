@@ -17,7 +17,7 @@ class CounterForCard extends StatefulWidget {
 class _CounterForCardState extends State<CounterForCard> {
   User user = FirebaseAuth.instance.currentUser;
   CartServices _cartServices = CartServices();
-  bool _loading = true;
+  //bool _loading = true;
   bool _exist = false;
   int _qty = 1;
   String _docId;

@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:multivendor_app/providers/store_provider.dart';
-import 'package:multivendor_app/services/store_services.dart';
 import 'package:provider/provider.dart';
 
 class VendorBanner extends StatefulWidget {
@@ -12,7 +11,7 @@ class VendorBanner extends StatefulWidget {
 }
 
 class _VendorBannerState extends State<VendorBanner> {
-  StoreServices _services = StoreServices();
+  //StoreServices _services = StoreServices();
   int _index = 0;
   int _dataLength = 1;
 

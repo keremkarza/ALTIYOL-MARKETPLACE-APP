@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multivendor_app/providers/cart_provider.dart';
 import 'package:multivendor_app/screens/cart_screen.dart';
-import 'package:multivendor_app/services/cart_services.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
 import 'package:social_share/social_share.dart';
@@ -16,7 +15,7 @@ class CartNotification extends StatefulWidget {
 }
 
 class _CartNotificationState extends State<CartNotification> {
-  CartServices _cartServices = CartServices();
+  //CartServices _cartServices = CartServices();
   //DocumentSnapshot document;
   bool _loaded = false;
   final String url = 'şuanlık boş';

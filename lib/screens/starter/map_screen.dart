@@ -161,7 +161,7 @@ class _MapScreenState extends State<MapScreen> {
                         width: MediaQuery.of(context).size.width - 40,
                         child: AbsorbPointer(
                           absorbing: _locating ? true : false,
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {
                               setState(() {
                                 addressController.text = _locating
@@ -263,9 +263,11 @@ class _MapScreenState extends State<MapScreen> {
                               'CONFIRM LOCATION',
                               style: TextStyle(color: Colors.white),
                             ),
-                            color: _locating
-                                ? Colors.grey
-                                : Theme.of(context).primaryColor,
+                            style: TextButton.styleFrom(
+                              backgroundColor: _locating
+                                  ? Colors.grey
+                                  : Theme.of(context).primaryColor,
+                            ),
                           ),
                         ),
                       ),

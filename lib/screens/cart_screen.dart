@@ -22,7 +22,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'starter/map_screen.dart';
 
 class CartScreen extends StatefulWidget {
-  DocumentSnapshot document;
+  final DocumentSnapshot document;
 
   CartScreen({this.document});
 
@@ -42,7 +42,7 @@ class _CartScreenState extends State<CartScreen> {
   int deliveryFee = 4;
   var textStyle = TextStyle(color: Colors.grey);
   String _address;
-  bool _loading = false;
+  //bool _loading = false;
   bool _checkingUser = false;
 
   @override

@@ -171,7 +171,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Positioned(
               right: 0.0,
               top: 10.0,
-              child: FlatButton(
+              child: TextButton(
                 child: Text(
                   'SKIP',
                   style: TextStyle(color: Theme.of(context).primaryColor),
@@ -187,8 +187,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   style: TextStyle(color: Colors.grey),
                 ),
                 SizedBox(height: 20),
-                FlatButton(
-                  color: Theme.of(context).primaryColor,
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,
+                  ),
                   child: locationData.loading
                       ? CircularProgressIndicator(
                           valueColor:
@@ -219,7 +221,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     }
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: RichText(
                     text: TextSpan(
                         text: 'Already a Customer ? ',

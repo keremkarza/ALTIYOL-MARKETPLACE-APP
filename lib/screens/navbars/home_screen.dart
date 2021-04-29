@@ -29,9 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void didChangeDependencies() {
-    setState(() {
-      print('didchangeinhome');
-    });
+    // setState(() {
+    //   print('didchangeinhome');
+    // });
     super.didChangeDependencies();
   }
   //
@@ -89,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     // print('after change : ${_storeProvider.status}');
                   },
                   choiceItems: C2Choice.listFrom<int, String>(
+                    // i was trying here,then i did it in nearby file
                     source: options,
                     value: (i, v) => i,
                     label: (i, v) => v,

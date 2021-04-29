@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:multivendor_app/services/cart_services.dart';
 import 'package:multivendor_app/widgets/cart/add_to_cart_widget.dart';
@@ -68,9 +67,9 @@ class _CounterForCardState extends State<CounterForCard> {
   @override
   Widget build(BuildContext context) {
     print('counterforcard build');
-    SchedulerBinding.instance.addPostFrameCallback((_) => setState(() {
-          getCartData();
-        }));
+    // SchedulerBinding.instance.addPostFrameCallback((_) => setState(() {
+    //       getCartData();
+    //     }));
     return !_exist
         ? StreamBuilder(
             stream: getCartData(),

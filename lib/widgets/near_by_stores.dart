@@ -106,28 +106,36 @@ class _NearByStoresState extends State<NearByStores> {
     //   print(_cartServices.didChangeTime);
     //_filterInStart();
     // }
-    //_filterInStart();
+    _filterInStart();
     super.didChangeDependencies();
   }
 
   @override
   void initState() {
-    _filterInStart();
+    _filterInStart(); //u mean this?
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     //var query = tag > 0 ? superCategoryStatus : null;
-    final _cartProvider = Provider.of<CartProvider>(context, listen: false);
+    final _cartProvider = Provider.of<CartProvider>(context);
     final _storeProvider = Provider.of<StoreProvider>(context);
-    print('nearby build yenilendi');
+    print(
+        'nearby build yenilendi. streambuilder'); //if its streambuilder, it will keep on make any new update. or else untill u restart the app, u wont able to see the update. so its up tp u, u can use any way
     //superCategoryStatus = _storeProvider.status;
-    //print('superCat : $superCategoryStatus');
+    //print('superCat : $superCategoryStatus'); // for tracking
 
+    //use just provider and bring selected vlue from provider to here
     return Container(
-      //.where('superCategory', isEqualTo: query)
+      //where('superCategory', isEqualTo: query)
+
+      //     .where('superCategory',
+      // isEqualTo: _storeProvider
+      //     .selectedSuperCategory) //not like that. ehrere is the switch,
+
       child: StreamBuilder<QuerySnapshot>(
+        //strambuilder is there.so?
         stream: _storeServices.vendors
             .where('accVerified', isEqualTo: true)
             .where('shopOpen', isEqualTo: true)
@@ -138,7 +146,8 @@ class _NearByStoresState extends State<NearByStores> {
           //print('degisik : ${snapshot.data.docs[0]['superCategory']}');
           //print(_storeProvider.status);
           if (snapshot.hasError) {
-            return Text('Something went wrong');
+            return const Text(
+                'Something went wrong'); // this will not rerun with build,thats good!
           }
 
           // if (snapshot.connectionState == ConnectionState.waiting) {
@@ -240,6 +249,7 @@ class _NearByStoresState extends State<NearByStores> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Container(
+                //   //here
                 //   height: 56,
                 //   width: MediaQuery.of(context).size.width,
                 //   child: ChipsChoice<int>.single(
@@ -253,10 +263,12 @@ class _NearByStoresState extends State<NearByStores> {
                 //         });
                 //       }
                 //       setState(() {
+                //         //update this value with a value in provider . thats all
                 //         tag = val;
-                //
+                //         //actually what you did is here
                 //         if (tag > 0) {
-                //           _storeProvider.filterOrder(options[val], false);
+                //           _storeProvider.updateSuperCat(val);
+                //           //_storeProvider.filterOrder(options[val], false);
                 //         }
                 //       });
                 //     },
@@ -416,6 +428,7 @@ class _NearByStoresState extends State<NearByStores> {
                       query: _storeServices.vendors
                           .where('accVerified', isEqualTo: true)
                           .where('shopOpen', isEqualTo: true)
+                          //.where('superCategory', isEqualTo: query)
                           .orderBy('shopName'),
                       listeners: [
                         _paginateRefreshedChangeListener,
@@ -505,3 +518,8 @@ class _NearByStoresState extends State<NearByStores> {
     //do something
   }
 }
+
+//its not an issue. u can do it any way u prefer, now error is about that location.
+// but infinite loop will cause performance problem ?
+//no much , but u an change to futurebuilder if u want
+// but then user wont see ui change, notification when add product.

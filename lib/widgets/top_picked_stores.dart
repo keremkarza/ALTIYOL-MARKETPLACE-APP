@@ -40,6 +40,12 @@ class _TopPickedStoresState extends State<TopPickedStores> {
 
   // version 1 --only near stores-------------------------
 
+  // @override
+  // void didChangeDependencies() {
+  //   //_filterInStart();
+  //   super.didChangeDependencies();
+  // }
+
   @override
   void initState() {
     _filterInStart();
@@ -68,7 +74,10 @@ class _TopPickedStoresState extends State<TopPickedStores> {
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapShot) {
           if (!snapShot.hasData) {
             print('Data yok');
-            return CircularProgressIndicator();
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(child: CircularProgressIndicator()),
+            );
           }
           List shopDistance = [];
           for (int i = 0; i <= snapShot.data.docs.length - 1; i++) {

@@ -26,7 +26,7 @@ class _CartNotificationState extends State<CartNotification> {
     // if (_cartServices.didChangeTime) {
     //   _cartServices.didChangeTime = false;
     //   print(_cartServices.didChangeTime);
-    //_filterInStart();
+    _filterInStart();
     //}
     super.didChangeDependencies();
   }
@@ -40,21 +40,22 @@ class _CartNotificationState extends State<CartNotification> {
 
   @override
   Widget build(BuildContext context) {
-    final _cartProvider = Provider.of<CartProvider>(context, listen: true);
+    final _cartProvider = Provider.of<CartProvider>(context);
     //Future<DocumentSnapshot> shopFuture = _cartProvider.getShopName();
     //Future<double> cartFuture = _cartProvider.getCartTotal();
-    _cartProvider
-        .getCartTotal(); // bu kapanınca cart notification visible olmuyor.
-    _cartProvider.getShopName().then((value) {
-      // bu kapanınca cart notification shopname gelmiyor
-      setState(() {
-        _loaded = true;
-      });
-    });
+    // _cartProvider
+    //     .getCartTotal(); // bu kapanınca cart notification visible olmuyor.
+    // _cartProvider.getShopName().then((value) {
+    //   // bu kapanınca cart notification shopname gelmiyor
+    //   setState(() {
+    //     _loaded = true;
+    //   });
+    // });
 
-    print('distance pro ${_cartProvider.distance}');
+    //print('distance pro ${_cartProvider.distance}');
 
-    print('cartNotification build');
+    print('cartNotification build'); //because it is inside build
+    //wherenever it build, this message will hppen yes the problem is build method called infinitely, this print is just
     return Visibility(
       visible: _cartProvider.distance == null
           ? false
@@ -140,6 +141,8 @@ class _CartNotificationState extends State<CartNotification> {
       ),
     );
   }
+
+  //are u talking about this notification> yes, it is called infinitely
 
   _filterInStart() async {
     await Future.delayed(Duration(milliseconds: 50));

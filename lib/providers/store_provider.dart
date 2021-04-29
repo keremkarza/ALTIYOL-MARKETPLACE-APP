@@ -18,19 +18,28 @@ class StoreProvider with ChangeNotifier {
   String selectedProductCategory;
   String selectedSubProductCategory;
   String status;
+  String selectedSuperCategory;
 
-  // filterOrder(status, isBuild) { // bu kısım supercategory için
-  //   //SchedulerBinding.instance.addPostFrameCallback((_) {
-  //   this.status = status;
-  //   print(status);
-  //   if (isBuild) {
-  //     print('build-filterOrder');
-  //   } else {
-  //     print('build dışı-filterOrder');
-  //     notifyListeners();
-  //   }
-  //   //});
-  // }
+  filterOrder(status, isBuild) {
+    //filterOrder name is because i copied from there :)
+    // bu kısım supercategory için
+    //SchedulerBinding.instance.addPostFrameCallback((_) {
+    this.status = status;
+    notifyListeners();
+    print(status);
+    // if (isBuild) {
+    //   print('build-filterOrder');
+    // } else {
+    //   print('build dışı-filterOrder');
+    //   notifyListeners();
+    // }
+    //});
+  }
+
+  updateSuperCat(selected) {
+    this.selectedSuperCategory = selected;
+    notifyListeners();
+  }
 
   getSelectedStore(storeDetails, distance) {
     print('getStore');
@@ -53,7 +62,13 @@ class StoreProvider with ChangeNotifier {
 
   String getDistance(location) {
     var distance = Geolocator.distanceBetween(
-        userLatitude, userLongitude, location.latitude, location.longitude);
+      //yes this error is about this, but my main problem is infinite loop
+      //show me that
+      userLatitude,
+      userLongitude,
+      41.0097531,
+      29.0962564,
+    );
     var distanceInKm = distance / 1000;
     return distanceInKm.toStringAsFixed(2);
   }

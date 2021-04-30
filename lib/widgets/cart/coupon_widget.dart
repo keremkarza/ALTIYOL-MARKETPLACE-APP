@@ -209,15 +209,15 @@ class _CouponWidgetState extends State<CouponWidget> {
         context: context,
         builder: (BuildContext context) {
           return CupertinoAlertDialog(
-            title: Text('APPLY COUPON'),
+            title: Text('KUPONU KULLAN'),
             content: Text(
-                'This discount coupon $code you have entered is $validity.Please try with another code.'),
+                'Girdiginiz bu kupon :  $code, $validity durumdadir.Lütfen baska bir kodla tekrar deneyin.'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('OK',
+                child: Text('TAMAM',
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold)),

@@ -39,7 +39,7 @@ class _CartScreenState extends State<CartScreen> {
   StoreServices _store = StoreServices();
   DocumentSnapshot doc;
   double discount = 0;
-  int deliveryFee = 4;
+  int deliveryFee = 0; // bu kısmın ayarlanması lazım
   var textStyle = TextStyle(
     color: Colors.grey,
     fontFamily: 'Lato-Regular.ttf',
@@ -267,7 +267,7 @@ class _CartScreenState extends State<CartScreen> {
                                 _showMyDialog(
                                     title: 'SİPARİŞ VER',
                                     content:
-                                        'You must buy products worth equal or more than 15 TL, Please buy more product to proceed.');
+                                        '15 TL veya üstü bir alışveriş yapmak zorundasınız, Lütfen devam etmek için ürün ekleyiniz.');
                               }
                             },
                             child: _checkingUser

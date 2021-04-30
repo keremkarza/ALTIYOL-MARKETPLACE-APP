@@ -26,8 +26,10 @@ class CouponProvider with ChangeNotifier {
 
   checkExpiry(DocumentSnapshot document) {
     DateTime date = document.data()['expiry'].toDate();
+    bool active = document.data()['active'];
     var dateDiff = date.difference(DateTime.now()).inDays;
-    if (dateDiff < 0) {
+    if (dateDiff < 0 || !active) {
+      // buradaki active kontrolü sonra dışarı taşınabilir.
       print('expired');
       //coupon expired
       this.expired = true;

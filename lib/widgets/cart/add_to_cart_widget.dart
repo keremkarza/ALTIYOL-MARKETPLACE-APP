@@ -46,6 +46,9 @@ class _AddToCartWidgetState extends State<AddToCartWidget> {
 
   @override
   Widget build(BuildContext context) {
+    print('loading $_loading');
+    print('exist $_exist');
+    print('qty $_qty');
     // if this product exists in cart, we need to get qty details
     print('AddToCartWidget build');
 
@@ -109,7 +112,7 @@ class _AddToCartWidgetState extends State<AddToCartWidget> {
                       } else {
                         //product from different seller
                         EasyLoading.dismiss();
-                        showDialog(shopName);
+                        showMyDialog(shopName);
                         return;
                       }
                     });
@@ -143,7 +146,7 @@ class _AddToCartWidgetState extends State<AddToCartWidget> {
     );
   }
 
-  showDialog(shopName) {
+  showMyDialog(shopName) {
     showCupertinoDialog(
         context: context,
         builder: (BuildContext context) {

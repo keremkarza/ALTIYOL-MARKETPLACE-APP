@@ -57,15 +57,20 @@ class VendorAppBar extends StatelessWidget {
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
+                            fontFamily: 'Lato-Regular.ttf',
                           ),
                         ),
                         Text(
                           _store.storeDetails['address'],
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Lato-Regular.ttf'),
                         ),
                         Text(
                           _store.storeDetails['email'],
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Lato-Regular.ttf'),
                         ),
                         Text(
                           'Uzaklık : ${_store.distance} km',

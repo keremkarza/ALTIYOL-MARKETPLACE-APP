@@ -11,7 +11,10 @@ class FavouritesScreen extends StatelessWidget {
     FavouritesServices _services = FavouritesServices();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Beğendiğin Ürünleri Takip Et'),
+        title: Text(
+          'Beğendiğin Ürünleri Takip Et',
+          style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+        ),
         centerTitle: true,
       ),
       body: Container(
@@ -19,7 +22,9 @@ class FavouritesScreen extends StatelessWidget {
           children: [
             Center(
               child: Container(
-                child: Center(child: Text('En Sevdiğin Ürünler')),
+                child: Center(
+                    child: Text('En Sevdiğin Ürünler',
+                        style: TextStyle(fontFamily: 'Lato-Regular.ttf'))),
                 height: 50,
               ),
             ),

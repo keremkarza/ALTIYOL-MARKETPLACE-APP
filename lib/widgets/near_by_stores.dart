@@ -146,7 +146,7 @@ class _NearByStoresState extends State<NearByStores> {
           //print(_storeProvider.status);
           if (snapshot.hasError) {
             return const Text(
-                'Something went wrong'); // this will not rerun with build,thats good!
+                'Birseyler ters gitti'); // this will not rerun with build,thats good!
           }
 
           // if (snapshot.connectionState == ConnectionState.waiting) {
@@ -157,8 +157,8 @@ class _NearByStoresState extends State<NearByStores> {
             print('snapshot.data null');
             return Center(
                 child: Text(tag > 0
-                    ? 'No ${options[tag]} stores'
-                    : 'No stores. Soon there will be.'));
+                    ? '${options[tag]} ile alakalı dükkan bulunamadı.'
+                    : 'Dükkan bulunamadı.'));
           }
           if (snapshot.data.size == 0) {
             print('snapshot.data.size = 0');
@@ -172,8 +172,8 @@ class _NearByStoresState extends State<NearByStores> {
                 // ),
                 Center(
                     child: Text(tag > 0
-                        ? 'No ${options[tag]} stores'
-                        : 'No stores. Soon there will be.')),
+                        ? '${options[tag]} ile alakalı dükkan bulunamadı.'
+                        : 'Dükkan bulunamadı.')),
               ],
             );
           }

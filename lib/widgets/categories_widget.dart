@@ -150,6 +150,8 @@ class _VendorCategoriesState extends State<VendorCategories> {
                                     child: Text(
                                       document.data()['name'],
                                       textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontFamily: 'Lato-Regular.ttf'),
                                     ),
                                   )
                                 ],

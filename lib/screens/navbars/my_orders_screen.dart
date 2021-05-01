@@ -82,6 +82,8 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
               },
               choiceItems: C2Choice.listFrom<int, String>(
                 source: options,
+                style: (i, v) => C2ChoiceStyle(
+                    labelStyle: TextStyle(fontFamily: 'Lato-Regular.ttf')),
                 value: (i, v) => i,
                 label: (i, v) => v,
               ),
@@ -130,6 +132,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                   fontSize: 12,
                                   color: _orderServices.statusColor(document),
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: 'Lato-Regular.ttf',
                                 ),
                               ),
                               subtitle: Text(
@@ -191,7 +194,10 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                             subtitle: Text(
                                               _orderServices
                                                   .statusComment(document),
-                                              style: TextStyle(fontSize: 11),
+                                              style: TextStyle(
+                                                  fontSize: 11,
+                                                  fontFamily:
+                                                      'Lato-Regular.ttf'),
                                             ),
                                             leading: CircleAvatar(
                                               backgroundColor: Colors.white,

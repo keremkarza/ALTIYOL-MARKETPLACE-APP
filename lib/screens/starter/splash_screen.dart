@@ -26,8 +26,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 3), () {
       FirebaseAuth.instance.authStateChanges().listen((User user) {
         if (user == null) {
+          print('user null');
           Navigator.pushReplacementNamed(context, WelcomeScreen.id);
         } else {
+          print('user null degil');
           //eğer kullanıcının verisi veritabanında varsa adresini girmişmi kontrolü
           getUserData();
         }

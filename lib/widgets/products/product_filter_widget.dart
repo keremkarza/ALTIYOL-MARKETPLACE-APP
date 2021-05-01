@@ -104,7 +104,8 @@ class _ProductFilterWidgetState extends State<ProductFilterWidget> {
                                 style: TextStyle(
                                     color: _isActive
                                         ? Colors.white
-                                        : Colors.black54),
+                                        : Colors.black54,
+                                    fontFamily: 'Lato-Regular.ttf'),
                               ),
                               onPressed: () {
                                 //_isActive = true;

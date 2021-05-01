@@ -54,7 +54,7 @@ class _TopPickedStoresState extends State<TopPickedStores> {
 
   @override
   Widget build(BuildContext context) {
-    const MAX_KM_NEARBY_STORES = 10;
+    const MAX_KM_NEARBY_STORES = 2;
     StoreServices _storeServices = StoreServices();
 
     //for selected location near stores

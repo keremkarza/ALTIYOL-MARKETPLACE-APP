@@ -48,7 +48,10 @@ class ProductDetailsScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(
                         left: 8, right: 8, bottom: 2, top: 2),
-                    child: Text(openedDocument['brand']),
+                    child: Text(
+                      openedDocument['brand'],
+                      style: TextStyle(fontFamily: 'Lato-Regular.ttf'),
+                    ),
                   ),
                   decoration: BoxDecoration(
                       color: Theme.of(context).primaryColor.withOpacity(.3),
@@ -58,7 +61,8 @@ class ProductDetailsScreen extends StatelessWidget {
               ],
             ),
             SizedBox(height: 10),
-            Text(openedDocument['productName'], style: TextStyle(fontSize: 22)),
+            Text(openedDocument['productName'],
+                style: TextStyle(fontSize: 22, fontFamily: 'Lato-Regular.ttf')),
             SizedBox(height: 10),
             Text(
               '1 ${openedDocument['weight']}',
@@ -133,11 +137,12 @@ class ProductDetailsScreen extends StatelessWidget {
                   const EdgeInsets.only(top: 8, bottom: 8, left: 10, right: 10),
               child: ExpandableText(
                 openedDocument['description'],
-                expandText: 'Çoğalt',
+                expandText: 'Arttır',
                 collapseText: 'Azalt',
                 maxLines: 2,
                 linkColor: Colors.blue,
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(
+                    color: Colors.grey, fontFamily: 'Lato-Regular.ttf'),
               ),
             ),
             Divider(color: Colors.grey[400]),
@@ -146,7 +151,8 @@ class ProductDetailsScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 8, bottom: 8),
                 child: Text(
                   'Ürün hakkındaki diğer bilgiler',
-                  style: TextStyle(fontSize: 20),
+                  style:
+                      TextStyle(fontSize: 20, fontFamily: 'Lato-Regular.ttf'),
                 ),
               ),
             ),
@@ -158,11 +164,13 @@ class ProductDetailsScreen extends StatelessWidget {
                 children: [
                   Text(
                     'SKU : ${openedDocument['sku']}',
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(
+                        color: Colors.grey, fontFamily: 'Lato-Regular.ttf'),
                   ),
                   Text(
                     'Satıcı : ${openedDocument['seller']['shopName']}',
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(
+                        color: Colors.grey, fontFamily: 'Lato-Regular.ttf'),
                   ),
                 ],
               ),

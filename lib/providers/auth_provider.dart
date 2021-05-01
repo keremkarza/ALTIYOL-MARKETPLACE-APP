@@ -72,12 +72,12 @@ class AuthProvider with ChangeNotifier {
           return AlertDialog(
             title: Column(
               children: [
-                Text('Verification Code'),
+                Text('Teyit Kodu'),
                 SizedBox(
                   height: 6,
                 ),
                 Text(
-                  'Enter 6 digit OTP received as SMS',
+                  'SMS olarak gelen 6 haneli OTP kodunuzu giriniz',
                   style: TextStyle(color: Colors.grey, fontSize: 12),
                 ),
               ],

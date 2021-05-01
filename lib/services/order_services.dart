@@ -64,15 +64,15 @@ class OrderServices {
 
   String statusComment(DocumentSnapshot document) {
     if (document.data()['seller']['orderStatus'] == 'Rejected') {
-      return 'Your order is Rejected by ${document.data()['deliveryBoy']['name']}';
+      return 'Siparişiniz ${document.data()['seller']['shopName']} tarafından reddedildi';
     } else if (document.data()['seller']['orderStatus'] == 'On the way') {
-      return 'Your delivery carrier ${document.data()['deliveryBoy']['name']} is on the way';
+      return 'Siparişiniz ${document.data()['deliveryBoy']['name']} hazırlanıyor';
     } else if (document.data()['seller']['orderStatus'] == 'Picked Up') {
-      return 'Your order is Picked Up by ${document.data()['deliveryBoy']['name']}';
+      return 'Siparişiniz size atanan kurye : ${document.data()['deliveryBoy']['name']} ile yola çıktı.';
     } else if (document.data()['seller']['orderStatus'] == 'Delivered') {
-      return 'Your order is Delivered by ${document.data()['deliveryBoy']['name']}';
+      return 'Siparişiniz ${document.data()['deliveryBoy']['name']} tarafından size teslim edildi.';
     } else {
-      return 'Your order is Accepted by ${document.data()['seller']['shopName']}';
+      return 'Siparişiniz ${document.data()['seller']['shopName']} tarafından kabul edildi.';
     }
   }
 }

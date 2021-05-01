@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multivendor_app/services/cart_services.dart';
 
@@ -15,9 +17,26 @@ class CounterWidget extends StatefulWidget {
 
 class _CounterWidgetState extends State<CounterWidget> {
   CartServices _cart = CartServices();
+  User user = FirebaseAuth.instance.currentUser;
   int _qty;
   bool _updating = false;
   bool _exists = true;
+  bool _deleted = false;
+
+  getCartData() async {
+    final snapshot =
+        await _cart.cart.doc(user.uid).collection('products').get();
+    if (snapshot.docs.length == 0) {
+      //means this product not added to cart
+      setState(() {
+        _updating = false;
+      });
+    } else {
+      setState(() {
+        _updating = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +45,23 @@ class _CounterWidgetState extends State<CounterWidget> {
       _qty = widget.qty;
     });
     return !_exists
-        ? Container()
+        ? Container(
+            child: TextButton(
+              child: Container(
+                child: Center(
+                  child: Text(
+                    'GERİ GİT',
+                    style: TextStyle(
+                        fontFamily: 'Lato-Regular.ttf', color: Colors.white),
+                  ),
+                ),
+              ),
+              style: TextButton.styleFrom(backgroundColor: Colors.redAccent),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          )
         : Container(
             margin: EdgeInsets.only(left: 0, right: 0),
             decoration: BoxDecoration(
@@ -49,6 +84,7 @@ class _CounterWidgetState extends State<CounterWidget> {
                               setState(() {
                                 _updating = false;
                                 _exists = false;
+                                _deleted = true;
                               });
 
                               _cart.checkData();
@@ -137,4 +173,39 @@ class _CounterWidgetState extends State<CounterWidget> {
             ),
           );
   }
+
+  // showMyDialog(shopName) {
+  //   showCupertinoDialog(
+  //       context: context,
+  //       builder: (BuildContext context) {
+  //         return CupertinoAlertDialog(
+  //           title: Text('Sepetinizi sıfırlayalım mı?'),
+  //           content: Text(
+  //               'Sepetinde $shopName dükkanından ürünler var. Bu sepeti silmemizi ve ${widget.document.data()['seller']['shopName']} dükkanından bu ürünü eklememizi istermisin?'),
+  //           actions: [
+  //             TextButton(
+  //               child: Text('Hayır'),
+  //               onPressed: () {
+  //                 Navigator.pop(context);
+  //               },
+  //             ),
+  //             TextButton(
+  //               child: Text('Evet'),
+  //               onPressed: () {
+  //                 //delete existing cart
+  //                 _cart.deleteCart().then((value) {
+  //                   _cart.addToCart(widget.document).then((value) {
+  //                     setState(() {
+  //                       _exists = true;
+  //                     });
+  //                     Navigator.pop(context);
+  //                     EasyLoading.showSuccess('Added to Cart');
+  //                   });
+  //                 });
+  //               },
+  //             ),
+  //           ],
+  //         );
+  //       });
+  // }
 }

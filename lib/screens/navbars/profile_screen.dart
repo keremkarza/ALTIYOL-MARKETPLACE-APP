@@ -63,12 +63,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               child: Text(
                                   userDetails.snapshot == null
                                       ? 'A'
-                                      : userDetails.snapshot
-                                                  .data()['firstName'] ==
-                                              null
+                                      : userDetails.snapshot.data() == null
                                           ? 'A'
                                           : userDetails.snapshot
-                                              .data()['firstName'][0],
+                                                      .data()['firstName'] ==
+                                                  null
+                                              ? 'A'
+                                              : userDetails.snapshot
+                                                  .data()['firstName'][0],
                                   style: TextStyle(
                                       fontSize: 40, color: Colors.white)),
                             ),

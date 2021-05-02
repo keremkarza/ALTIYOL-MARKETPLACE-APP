@@ -195,12 +195,12 @@ class _CartNotificationState extends State<CartNotification> {
                           style: TextStyle(
                             color: Colors.black87,
                             fontFamily: 'Lato-Regular.ttf',
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 5),
                     SizedBox(
                       width: 320.0,
                       child: Container(

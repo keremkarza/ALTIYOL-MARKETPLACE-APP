@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:chips_choice/chips_choice.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -151,10 +152,10 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                               trailing: Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  Text(
+                                  AutoSizeText(
                                     'Ödeme Tipi : ${document.data()['cod'] == 0 ? 'Online' : document.data()['cod'] == 2 ? 'Kapıda Kartla' : 'Kapıda Nakit'}',
                                     style: TextStyle(
-                                      fontSize: 12,
+                                      fontSize: 11,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Lato-Regular.ttf',
                                     ),

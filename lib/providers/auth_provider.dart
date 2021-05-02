@@ -138,14 +138,14 @@ class AuthProvider with ChangeNotifier {
                       print('Login Failed');
                     }
                   } catch (e) {
-                    this.error = 'Invalid OTP';
+                    this.error = 'Gecersiz OTP';
                     notifyListeners();
                     print(e.toString());
                     Navigator.of(context).pop();
                   }
                 },
                 child: Text(
-                  'DONE',
+                  'TAMAM',
                   style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
               ),

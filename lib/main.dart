@@ -13,6 +13,7 @@ import 'package:multivendor_app/screens/products/product_details_screen.dart';
 import 'package:multivendor_app/screens/vendor_home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sizer/sizer.dart';
 
 import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/navbars/home_screen.dart';
 import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/navbars/main_screen.dart';
@@ -64,35 +65,37 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Color(0xFF008744),
-        backgroundColor: Colors.blueGrey[900],
-        indicatorColor: Colors.lightGreen[200],
-        secondaryHeaderColor: Colors.black,
-        fontFamily: 'Lato',
-      ),
-      debugShowCheckedModeBanner: false,
-      initialRoute: SplashScreen.id,
-      routes: {
-        HomeScreen.id: (context) => HomeScreen(),
-        WelcomeScreen.id: (context) => WelcomeScreen(),
-        OnBoardScreen.id: (context) => OnBoardScreen(),
-        RegisterScreen.id: (context) => RegisterScreen(),
-        SplashScreen.id: (context) => SplashScreen(),
-        MapScreen.id: (context) => MapScreen(),
-        LoginScreen.id: (context) => LoginScreen(),
-        ProfileScreen.id: (context) => ProfileScreen(),
-        MyOrdersScreen.id: (context) => MyOrdersScreen(),
-        LandingScreen.id: (context) => LandingScreen(),
-        MainScreen.id: (context) => MainScreen(),
-        VendorHomeScreen.id: (context) => VendorHomeScreen(),
-        ProductListScreen.id: (context) => ProductListScreen(),
-        ProductDetailsScreen.id: (context) => ProductDetailsScreen(),
-        CartScreen.id: (context) => CartScreen(),
-        UpdateProfileScreen.id: (context) => UpdateProfileScreen(),
-      },
-      builder: EasyLoading.init(),
-    );
+    return Sizer(builder: (context, orientation, screenType) {
+      return MaterialApp(
+        theme: ThemeData(
+          primaryColor: Color(0xFF008744),
+          backgroundColor: Colors.blueGrey[900],
+          indicatorColor: Colors.lightGreen[200],
+          secondaryHeaderColor: Colors.black,
+          fontFamily: 'Lato',
+        ),
+        debugShowCheckedModeBanner: false,
+        initialRoute: SplashScreen.id,
+        routes: {
+          HomeScreen.id: (context) => HomeScreen(),
+          WelcomeScreen.id: (context) => WelcomeScreen(),
+          OnBoardScreen.id: (context) => OnBoardScreen(),
+          RegisterScreen.id: (context) => RegisterScreen(),
+          SplashScreen.id: (context) => SplashScreen(),
+          MapScreen.id: (context) => MapScreen(),
+          LoginScreen.id: (context) => LoginScreen(),
+          ProfileScreen.id: (context) => ProfileScreen(),
+          MyOrdersScreen.id: (context) => MyOrdersScreen(),
+          LandingScreen.id: (context) => LandingScreen(),
+          MainScreen.id: (context) => MainScreen(),
+          VendorHomeScreen.id: (context) => VendorHomeScreen(),
+          ProductListScreen.id: (context) => ProductListScreen(),
+          ProductDetailsScreen.id: (context) => ProductDetailsScreen(),
+          CartScreen.id: (context) => CartScreen(),
+          UpdateProfileScreen.id: (context) => UpdateProfileScreen(),
+        },
+        builder: EasyLoading.init(),
+      );
+    });
   }
 }

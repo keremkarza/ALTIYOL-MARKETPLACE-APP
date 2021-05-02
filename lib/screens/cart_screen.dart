@@ -212,7 +212,7 @@ class _CartScreenState extends State<CartScreen> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                '${_cartProvider.subTotal.toStringAsFixed(2)}\$',
+                                '${_cartProvider.subTotal.toStringAsFixed(2)} TL',
                                 style: TextStyle(color: Colors.white),
                               ),
                               Text(

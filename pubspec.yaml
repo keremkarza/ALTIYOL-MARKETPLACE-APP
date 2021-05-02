@@ -33,10 +33,13 @@ dependencies:
   dotted_border: any
   chips_choice: any
   social_share: any
+  sizer: any
+  auto_size_text: any
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 flutter:
 

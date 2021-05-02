@@ -117,7 +117,7 @@ class _TopPickedStoresState extends State<TopPickedStores> {
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0),
                       child: Container(
-                        height: 22,
+                        height: 16,
                         child: Image.asset('images/like.gif'),
                       ),
                     ),
@@ -125,7 +125,7 @@ class _TopPickedStoresState extends State<TopPickedStores> {
                       'Keşfet',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 14,
                           fontFamily: 'Lato-Regular.ttf'),
                     ),
                   ],
@@ -180,7 +180,7 @@ class _TopPickedStoresState extends State<TopPickedStores> {
                                           fontSize: 10,
                                           color: Colors.black87,
                                         ),
-                                        maxLines: 2,
+                                        maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                     ),
@@ -191,6 +191,7 @@ class _TopPickedStoresState extends State<TopPickedStores> {
                                         fontSize: 8,
                                         color: Colors.black54,
                                       ),
+                                      maxLines: 1,
                                     )
                                   ],
                                 ),

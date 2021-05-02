@@ -70,6 +70,7 @@ class _MapScreenState extends State<MapScreen> {
               initialCameraPosition:
                   CameraPosition(target: currentLocation, zoom: 14.4746),
               zoomControlsEnabled: false,
+              zoomGesturesEnabled: true,
               minMaxZoomPreference: MinMaxZoomPreference(1.5, 20.8),
               myLocationEnabled: true,
               myLocationButtonEnabled: true,

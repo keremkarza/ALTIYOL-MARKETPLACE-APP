@@ -18,7 +18,8 @@ class _CartNotificationState extends State<CartNotification> {
   //CartServices _cartServices = CartServices();
   //DocumentSnapshot document;
   bool _loaded = false;
-  final String url = 'şuanlık boş';
+  final String url =
+      'Google Playstore : https://play.google.com/store/apps/details?id=com.original.multivendor_app  Huawei AppGalery : https://appgallery.cloud.huawei.com/ag/n/app/C104293569?locale=tr_TR&source=appshare&subsource=C104293569  Apple Appstore : ..';
 
   @override
   void didChangeDependencies() {

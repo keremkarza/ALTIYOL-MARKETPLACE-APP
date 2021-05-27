@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:geolocator/geolocator.dart';
@@ -189,8 +190,9 @@ class _NearByStoresState extends State<NearByStores> {
           shopDistance
               .sort(); //en yakın dükkana göre sıralayacak, eğer en yakını 10km den fazlaysa yakın dükkan yok demektir.
 
+          //print(shopDistance.toString() + ' ust');
           if (shopDistance[0] > 2) {
-            print(shopDistance[0].toString() + ' hey');
+            //print(shopDistance[0].toString() + ' hey');
             // buradaki 10 , yakın olarak gösterilmek için max km
             return Container(
               child: Stack(
@@ -319,6 +321,25 @@ class _NearByStoresState extends State<NearByStores> {
                       physics: ScrollPhysics(),
                       itemBuilderType: PaginateBuilderType.listView,
                       itemBuilder: (index, context, document) {
+                        if (double.parse(getDistance(document['location'])) >
+                            2) {
+                          return Container();
+                          // bu kısım eğer 2km den uzak olan dükkanları göstermek ama işlevini elinden almak için yazmıştık, eğer istersek aşagıdaki ınkwellin ontapine koyulabilir.
+                          //ilerde bu özellik 2km den uzak olan yerlerden alışveriş yapmak isteyen kullanıcılara premium özellik olarak satılabilir.
+                          // return CupertinoAlertDialog(
+                          //   title: Text('Uzak Konum'),
+                          //   content: Text(
+                          //       'Bu dükkan şuan senin için uzak bir konumda, bu dükkandan alışveriş yapmak istiyorsan ona daha yakın bir konumda olmalısın.'),
+                          //   actions: [
+                          //     CupertinoDialogAction(
+                          //       child: Text('TAMAM'),
+                          //       onPressed: () {
+                          //         Navigator.pop(context);
+                          //       },
+                          //     ),
+                          //   ],
+                          // );
+                        }
                         return InkWell(
                           onTap: () {
                             WidgetsBinding.instance

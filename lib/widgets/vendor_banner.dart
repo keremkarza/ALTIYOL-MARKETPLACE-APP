@@ -56,7 +56,7 @@ class _VendorBannerState extends State<VendorBanner> {
                         padding: const EdgeInsets.only(top: 0),
                         child: CarouselSlider.builder(
                             itemCount: snapShot.data.length,
-                            itemBuilder: (context, int index) {
+                            itemBuilder: (context, int index, int index2) {
                               DocumentSnapshot sliderImage =
                                   snapShot.data[index];
                               Map getImage = sliderImage.data();

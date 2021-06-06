@@ -18,24 +18,27 @@ dependencies:
   provider: any
   cupertino_icons: any
   geolocator: any
-  geocoder: any
-  google_maps_flutter: any
   flutter_spinkit: any
   shared_preferences: any
   carousel_slider: any
   paginate_firestore: any
   persistent_bottom_nav_bar: any
   url_launcher: any
-  map_launcher: any
   expandable_text: any
   flutter_easyloading: any
   toggle_bar: any
   dotted_border: any
   chips_choice: any
-  social_share: any
   sizer: any
   auto_size_text: any
   firebase_messaging: any
+
+  #not supported for web
+  social_share: any
+  map_launcher: any
+  geocoder: any
+  google_maps_flutter: any
+
 
 dev_dependencies:
   flutter_test:

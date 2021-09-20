@@ -23,8 +23,22 @@ class FavouritesScreen extends StatelessWidget {
             Center(
               child: Container(
                 child: Center(
-                    child: Text('En Sevdiğin Ürünler',
-                        style: TextStyle(fontFamily: 'Lato-Regular.ttf'))),
+                  child: Column(
+                    children: [
+                      Text(
+                        'En Sevdiğin Ürünler',
+                        style: TextStyle(
+                            fontFamily: 'Lato-Regular.ttf',
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        '(En fazla 10 ürünü favorinize kaydedebilirsiniz.)',
+                        style: TextStyle(
+                            fontFamily: 'Lato-Regular.ttf', fontSize: 6),
+                      ),
+                    ],
+                  ),
+                ),
                 height: 50,
               ),
             ),

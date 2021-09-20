@@ -3,7 +3,6 @@ import 'package:multivendor_app/providers/auth_provider.dart';
 import 'package:multivendor_app/providers/location_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'map_screen.dart';
 import 'onboard_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -206,57 +205,63 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               AlwaysStoppedAnimation<Color>(Colors.white),
                         )
                       : Text(
-                          'TESLİMAT BÖLGENİ SEÇ',
+                          'GİRİŞ YAP',
                           style: TextStyle(
                             color: Colors.white,
-                            fontFamily: 'Lato-Regular.ttf',
+                            fontFamily: 'CaviarDreams.ttf',
                           ),
                         ),
                   onPressed: () async {
                     setState(() {
                       locationData.loading = true;
                     });
-
-                    await locationData.getCurrentPosition();
-                    if (locationData.permissionAllowed == true) {
-                      Navigator.pushReplacementNamed(context, MapScreen.id);
-                      setState(() {
-                        locationData.loading = false;
-                      });
-                    } else {
-                      print('Permission not allowed');
-                      setState(() {
-                        locationData.loading = false;
-                      });
-                    }
-                  },
-                ),
-                TextButton(
-                  child: RichText(
-                    text: TextSpan(
-                        text: 'Zaten müşterimiz misin ? ',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontFamily: 'Lato-Regular.ttf',
-                        ),
-                        children: [
-                          TextSpan(
-                            text: ' Giriş Yap',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).primaryColor,
-                              fontFamily: 'Lato-Regular.ttf',
-                            ),
-                          )
-                        ]),
-                  ),
-                  onPressed: () {
                     setState(() {
                       auth.screen = 'Login';
                     });
                     showBottomSheet(context);
+
+                    // await locationData.getCurrentPosition();
+                    // if (locationData.permissionAllowed == true) {
+                    //   Navigator.pushReplacementNamed(context, MapScreen.id);
+                    //   setState(() {
+                    //     locationData.loading = false;
+                    //   });
+                    // } else {
+                    //   print('Permission not allowed');
+                    //   setState(() {
+                    //     locationData.loading = false;
+                    //   });
+                    // }
                   },
                 ),
+                // TextButton(
+                //   child: RichText(
+                //     text: TextSpan(
+                //         text: 'Zaten müşterimiz misin ? ',
+                //         style: TextStyle(
+                //           color: Colors.grey,
+                //           fontFamily: 'Lato-Regular.ttf',
+                //         ),
+                //         children: [
+                //           // TextSpan(
+                //           //   text: ' Giriş Yap',
+                //           //   style: TextStyle(
+                //           //     fontWeight: FontWeight.bold,
+                //           //     color: Theme.of(context).primaryColor,
+                //           //     fontFamily: 'Lato-Regular.ttf',
+                //           //   ),
+                //           // )
+                //         ]),
+                //   ),
+                //   onPressed: () {
+                //     FirebaseCrashlytics.instance.crash();
+                //     throw Exception("This is a crash!");
+                //     // setState(() {
+                //     //   auth.screen = 'Login';
+                //     // });
+                //     // showBottomSheet(context);
+                //   },
+                // ),
               ],
             ),
           ],

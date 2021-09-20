@@ -17,7 +17,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  LatLng currentLocation = LatLng(37.421632, 122.084664);
+  LatLng currentLocation = LatLng(40.966740, 29.062889);
   GoogleMapController _mapController;
   bool _locating = false;
   bool _loggedIn = false;
@@ -43,6 +43,7 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print('currentLocation : $currentLocation');
     final locationData = Provider.of<LocationProvider>(context);
     final _auth = Provider.of<AuthProvider>(context);
     setState(() {

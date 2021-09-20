@@ -1,9 +1,9 @@
 name: multivendor_app
-description: A new Flutter application.
+description: ALTIYOL pazaryeri
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.3+4
+version: 1.1.41+42
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -12,9 +12,13 @@ dependencies:
   flutter:
     sdk: flutter
   dots_indicator: any
+  #firebase-related
   firebase_auth: any
   cloud_firestore: any
   firebase_core: any
+  firebase_messaging: any
+  firebase_crashlytics: any
+
   provider: any
   cupertino_icons: any
   geolocator: any
@@ -31,7 +35,9 @@ dependencies:
   chips_choice: any
   sizer: any
   auto_size_text: any
-  firebase_messaging: any
+
+
+  #not supported for ios
 
   #not supported for web
   social_share: any
@@ -62,3 +68,9 @@ flutter:
     - family: Anton
       fonts:
         - asset: fonts/Anton-Regular.ttf
+
+    - family: CaviarDreams
+      fonts:
+        - asset: fonts/CaviarDreams_Bold.ttf
+          weight: 700
+        - asset: fonts/CaviarDreams.ttf

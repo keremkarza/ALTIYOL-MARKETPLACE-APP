@@ -14,6 +14,7 @@ class FavouritesServices {
     var result = favourites
         .where('customerId', isEqualTo: user.uid)
         .where('product.productId', isEqualTo: productId)
+        .limit(10)
         .snapshots();
 
     bool empty = await result.first != null ? true : false;

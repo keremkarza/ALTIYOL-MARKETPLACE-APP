@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 
 class OrderServices {
   CollectionReference orders = FirebaseFirestore.instance.collection('orders');
-
-  Future<DocumentReference> saveOrder(Map<String, dynamic> data) {
-    var result = orders.add(data);
+  Future<DocumentReference> saveOrder(Map<String, dynamic> data) async {
+    var result = await orders.add(data).then((value) {
+      orders.doc(value.id).update({
+        'docId': value.id,
+      });
+    });
     return result;
   }
 

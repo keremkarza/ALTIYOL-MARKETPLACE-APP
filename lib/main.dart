@@ -15,20 +15,19 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
-import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/navbars/home_screen.dart';
-import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/navbars/main_screen.dart';
-import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/starter/landing_screen.dart';
-import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/starter/login_screen.dart';
-import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/starter/map_screen.dart';
-import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/starter/onboard_screen.dart';
-import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/starter/register_screen.dart';
-import 'file:///C:/Users/TULPAR/AndroidStudioProjects/multivendor_app/lib/screens/starter/welcome_screen.dart';
-
 import 'providers/store_provider.dart';
+import 'screens/navbars/home_screen.dart';
+import 'screens/navbars/main_screen.dart';
 import 'screens/navbars/my_orders_screen.dart';
 import 'screens/products/product_list_screen.dart';
 import 'screens/profile_update_screen.dart';
+import 'screens/starter/landing_screen.dart';
+import 'screens/starter/login_screen.dart';
+import 'screens/starter/map_screen.dart';
+import 'screens/starter/onboard_screen.dart';
+import 'screens/starter/register_screen.dart';
 import 'screens/starter/splash_screen.dart';
+import 'screens/starter/welcome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -68,11 +67,12 @@ class MyApp extends StatelessWidget {
     return Sizer(builder: (context, orientation, screenType) {
       return MaterialApp(
         theme: ThemeData(
-          primaryColor: Color(0xFF008744),
+          primaryColor:
+              Color(0xFF008744), //Colors.indigo[900], //Color(0xFF008744),
           backgroundColor: Colors.blueGrey[900],
           indicatorColor: Colors.lightGreen[200],
           secondaryHeaderColor: Colors.black,
-          fontFamily: 'Lato',
+          fontFamily: 'CaviarDreams',
         ),
         debugShowCheckedModeBanner: false,
         initialRoute: SplashScreen.id,

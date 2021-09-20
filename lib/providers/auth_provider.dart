@@ -30,13 +30,17 @@ class AuthProvider with ChangeNotifier {
         (PhoneAuthCredential credential) async {
       this.loading = false;
       notifyListeners();
-      await _auth.signInWithCredential(credential);
+      print('comp önce');
+      //await _auth.signInWithCredential(credential);
+      print('comp sonra');
     };
 
     final PhoneVerificationFailed verificationFailed =
         (FirebaseAuthException e) {
       this.loading = false;
+      print('fail önce');
       print(e.code);
+      print('fail sonra');
       this.error = e.toString();
       notifyListeners();
     };
@@ -44,9 +48,12 @@ class AuthProvider with ChangeNotifier {
       this.verificationId = verId;
 
       // open dialog to enter received OTP SMS
+      print('sent önce');
       smsOtpDialog(context, number);
+      print('sent sonra');
     };
     try {
+      print('verify önce');
       _auth.verifyPhoneNumber(
         timeout: Duration(seconds: 120),
         phoneNumber: number,
@@ -57,11 +64,13 @@ class AuthProvider with ChangeNotifier {
           this.verificationId = verId;
         },
       );
+      print('verify sonra');
     } catch (e) {
       this.error = e.toString();
       this.loading = false;
       notifyListeners();
       print(e);
+      print('verify 2.sonra');
     }
   }
 
@@ -168,6 +177,9 @@ class AuthProvider with ChangeNotifier {
       'longitude': this.longitude,
       'address': this.address,
       'location': this.location,
+      'email': '',
+      'firstName': '',
+      'lastName': '',
     });
     this.loading = false;
     notifyListeners();
@@ -183,6 +195,9 @@ class AuthProvider with ChangeNotifier {
         'longitude': this.longitude,
         'address': this.address,
         'location': this.location,
+        'email': '',
+        'firstName': '',
+        'lastName': '',
       });
       this.loading = false;
       notifyListeners();

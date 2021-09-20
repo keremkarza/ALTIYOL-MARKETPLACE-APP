@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multivendor_app/providers/cart_provider.dart';
@@ -24,35 +22,35 @@ class _MainScreenState extends State<MainScreen> {
   bool isSame = false;
   PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
-  CollectionReference pushtokens =
-      FirebaseFirestore.instance.collection('pushtokens');
-  final FirebaseMessaging _messaging = FirebaseMessaging.instance;
+  // CollectionReference pushtokens =
+  //     FirebaseFirestore.instance.collection('pushtokens');
+  // final FirebaseMessaging _messaging = FirebaseMessaging.instance;
 
   @override
   void initState() {
     super.initState();
-    _messaging.getToken().then((token) {
-      FirebaseFirestore.instance
-          .collection('pushtokens')
-          .get()
-          .then((QuerySnapshot querySnapshot) {
-        querySnapshot.docs.forEach((doc) {
-          if (doc['devtoken'] == token) {
-            isSame = true;
-            print("aynı");
-          } else {
-            print("farklı");
-            if (!isSame) {
-              print("hiç aynı olmamış");
-              pushtokens.add({
-                "devtoken": token,
-              });
-            }
-          }
-        });
-      });
-      print(token);
-    });
+    // _messaging.getToken().then((token) {
+    //   FirebaseFirestore.instance
+    //       .collection('pushtokens')
+    //       .get()
+    //       .then((QuerySnapshot querySnapshot) {
+    //     querySnapshot.docs.forEach((doc) {
+    //       if (doc['devtoken'] == token) {
+    //         isSame = true;
+    //         print("aynı");
+    //       } else {
+    //         print("farklı");
+    //         if (!isSame) {
+    //           print("hiç aynı olmamış");
+    //           pushtokens.add({
+    //             "devtoken": token,
+    //           });
+    //         }
+    //       }
+    //     });
+    //   });
+    //   print(token);
+    // });
   }
 
   // @override

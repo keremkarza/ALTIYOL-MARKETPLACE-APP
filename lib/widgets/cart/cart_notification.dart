@@ -34,7 +34,7 @@ class _CartNotificationState extends State<CartNotification> {
   @override
   void initState() {
     //_showMyDialog();
-    _filterInStart().then((value) => _showMyDialog());
+    //_filterInStart().then((value) => _showMyDialog());   -- this should be open --
     super.initState();
   }
 

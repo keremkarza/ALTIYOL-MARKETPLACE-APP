@@ -27,6 +27,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     var locationData = Provider.of<LocationProvider>(context);
     User user = FirebaseAuth.instance.currentUser;
     userDetails.getUserDetails();
+    // print("1" + userDetails.snapshot.data()['firstName']);
+    // print("2" + userDetails.snapshot.toString());
+    // print("3" + userDetails.toString());
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -63,14 +66,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               child: Text(
                                   userDetails.snapshot == null
                                       ? 'A'
-                                      : userDetails.snapshot.data() == null
+                                      : userDetails.snapshot == null
                                           ? 'A'
-                                          : userDetails.snapshot
-                                                      .data()['firstName'] ==
-                                                  null
+                                          : userDetails.snapshot['firstName'] ==
+                                                  ""
                                               ? 'A'
-                                              : userDetails.snapshot
-                                                  .data()['firstName'][0],
+                                              : userDetails
+                                                  .snapshot['firstName'][0],
                                   style: TextStyle(
                                       fontSize: 40, color: Colors.white)),
                             ),
@@ -110,7 +112,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         fontSize: 14, color: Colors.white),
                                   ),
                                   Text(
-                                    user.phoneNumber,
+                                    user.phoneNumber != null
+                                        ? user.phoneNumber
+                                        : "aktif degil",
                                     style: TextStyle(color: Colors.white),
                                   ),
                                 ],

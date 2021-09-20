@@ -509,7 +509,7 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
-  _saveOrder(CartProvider cartProvider, CouponProvider couponProvider) {
+  _saveOrder(CartProvider cartProvider, CouponProvider couponProvider) async {
     if (cartProvider.index != 0) {
       _orderServices.saveOrder({
         'products': cartProvider.cartList,
